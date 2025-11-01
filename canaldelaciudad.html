@@ -33,21 +33,41 @@
         </ul>
     </nav>
     <header>
-        <h1><span class="montserrat">CANAL</span> DE LA <span class="poppins">CIUDAD</span></h1>
-        <p class="poppins-subtitle">Transmisión EN VIVO</p>
+        <h1><span class="montserrat">CANAL</span> <span class="poppins">DE LA CIUDAD</span></h1>
+        <p class="poppins-subtitle">Selecciona tu transmisión</p>
     </header>
-    <main>
-        <div class="video-container">
+    <main style="flex-direction: column; padding: 10px 20px;">
+        
+        <h2 style="font-family: var(--font-montserrat); font-size: 1.5em; color: var(--color-acento); margin-bottom: 10px;">
+            Opción 1: Servidor Externo (M3U8)
+        </h2>
+        <div class="video-container" style="margin-bottom: 40px;"> 
             <iframe 
-                src="https://vmf.edge-apps.net/embed/live.php?streamname=gcba_video4-100042&autoplay=false" 
+                src="https://www.m3u8player.online/embed/m3u8?url=https%3A%2F%2Fstream-gtlc.telecentro.net.ar%2Fhls%2Fcdeciudadhls%2Fmain.m3u8" 
                 frameborder="0" 
                 allow="autoplay; fullscreen" 
                 allowfullscreen>
             </iframe>
         </div>
+
+        <h2 style="font-family: var(--font-montserrat); font-size: 1.5em; color: var(--color-acento); margin-bottom: 10px;">
+            Opción 2: YouTube
+        </h2>
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/live_stream?channel=UC5m_S3JkR_eJg2R7oG9zKGA" 
+                frameborder="0" 
+                allow="autoplay; fullscreen" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        
     </main>
     <footer>
         <p class="poppins-footer">© 2025 Sitio Web de TV. Diseño Minimalista.</p>
+        <a href="https://github.com/frantdse/TVArgentinaOnline" target="_blank" class="github-link" title="Ver código en GitHub">
+            🔗
+        </a>
     </footer>
 </body>
-</html>
+            </html>
