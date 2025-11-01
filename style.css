@@ -1,108 +1,141 @@
-/* Configuraciones generales para las fuentes */
+/* ======================================= */
+/* BASE Y TIPOGRAFÍA           */
+/* ======================================= */
+
 :root {
-    --color-principal: #1f2833; /* Gris oscuro para el fondo */
-    --color-texto: #ffffff; /* Blanco para el texto */
-    --color-acento: #45a29e; /* Tono turquesa para acentuar */
-    --color-fondo-nav: #1a232d; /* Fondo oscuro para el nav/footer */
-    --font-poppins: 'Poppins', sans-serif;
+    /* Colores */
+    --color-background-primary: #1e1e1e; /* Fondo principal oscuro */
+    --color-background-secondary: #2a2a2a; /* Fondo para nav/header */
+    --color-text-primary: #ffffff; /* Texto principal blanco */
+    --color-text-secondary: #aaaaaa; /* Texto secundario gris */
+    --color-acento: #00bcd4; /* Azul/Cian para acentos */
+
+    /* Tipografía */
     --font-montserrat: 'Montserrat', sans-serif;
+    --font-poppins: 'Poppins', sans-serif;
 }
 
-/* Reseteo y fondo */
-body {
-    background-color: var(--color-principal);
-    color: var(--color-texto);
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: var(--font-poppins); 
-    line-height: 1.6;
-    text-align: center;
+}
+
+body {
+    font-family: var(--font-poppins);
+    background-color: var(--color-background-primary);
+    color: var(--color-text-primary);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-/* Tipografía */
-h1 {
+a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+/* Clases de fuente */
+.montserrat {
     font-family: var(--font-montserrat);
     font-weight: 700;
-    font-size: 2.5em;
-    margin-bottom: 0.1em;
 }
-
-h1 .montserrat {
-    color: var(--color-acento);
-}
-
-h1 .poppins {
+.poppins {
     font-family: var(--font-poppins);
+    font-weight: 600;
 }
-
-.poppins-subtitle, .poppins-footer {
+.poppins-subtitle {
     font-family: var(--font-poppins);
     font-weight: 300;
     font-size: 1.1em;
-    margin-top: 0;
+    color: var(--color-acento);
 }
-
 .poppins-footer {
-    font-size: 0.8em;
+    font-family: var(--font-poppins);
+    font-weight: 300;
+    font-size: 0.85em;
+    color: var(--color-text-secondary);
 }
 
-/* --- ESTILOS DEL MENÚ DE NAVEGACIÓN --- */
+/* ======================================= */
+/* NAVEGACIÓN              */
+/* ======================================= */
+
 nav {
-    background-color: var(--color-fondo-nav);
+    background-color: var(--color-background-secondary);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     padding: 10px 0;
-    border-bottom: 1px solid #3a4759;
 }
 
 nav ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    overflow-x: auto; /* Permite desplazamiento horizontal en móviles */
+    padding: 0 10px;
+    white-space: nowrap; /* Evita que los enlaces salten de línea */
 }
 
 nav ul li {
-    margin: 5px 15px;
+    flex-shrink: 0; /* Evita que los elementos se encojan */
+    margin: 0 8px;
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: var(--color-texto);
-    font-family: var(--font-poppins);
-    font-weight: 600;
-    padding: 5px 10px;
+    display: flex; /* Para alinear el logo y el texto */
+    align-items: center;
+    padding: 8px 12px;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    font-size: 0.9em;
+    font-weight: 500;
 }
 
 nav ul li a:hover {
-    background-color: var(--color-acento);
-    color: var(--color-fondo-nav);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-acento);
 }
-/* ------------------------------------- */
 
-/* Contenido Principal y Reproductor */
+/* ======================================= */
+/* HEADER Y MAIN             */
+/* ======================================= */
+
+header {
+    text-align: center;
+    padding: 40px 20px 20px;
+    background-color: var(--color-background-secondary);
+}
+
+header h1 {
+    font-size: 2.8em;
+    margin-bottom: 5px;
+}
+
+header h1 span:last-child {
+    color: var(--color-acento);
+}
+
 main {
     flex-grow: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     padding: 20px;
 }
 
-/* Estilos para hacer el Iframe Responsivo */
+/* ======================================= */
+/* CONTENEDOR DE VIDEO           */
+/* ======================================= */
+
 .video-container {
     position: relative;
     width: 100%;
-    /* Relación de aspecto 16:9 - 56.25% de alto */
-    padding-top: 56.25%; 
     max-width: 900px;
-    margin: 0 auto;
+    padding-top: 56.25%; /* Relación de aspecto 16:9 */
+    margin: 20px auto;
     background-color: #000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .video-container iframe {
@@ -114,75 +147,158 @@ main {
     border: none;
 }
 
-/* Cabecera y Pie de Página */
-header {
-    padding-top: 20px;
-    padding-bottom: 10px;
-}
+/* ======================================= */
+/* LISTA DE CANALES (INDEX)       */
+/* ======================================= */
 
-footer {
-    padding: 15px 20px;
-    border-top: 1px solid #3a4759;
-    background-color: var(--color-fondo-nav);
-}
-
-/* AJUSTES PARA PÁGINAS DE DOS VIDEOS (Opt-in) */
-main[style*="column"] {
-    min-height: auto; 
-}
-
-/* --- ESTILOS PARA LA LISTA DE CANALES EN INDEX --- */
 .channels-list-container {
     width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: var(--color-fondo-nav);
-    border-radius: 8px;
+    max-width: 900px;
+    text-align: center;
+    margin: 20px auto;
+    padding: 0 10px;
 }
 
 .channels-list {
     list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 15px;
+    padding: 0;
 }
 
 .channels-list li {
-    width: calc(50% - 20px); /* 2 canales por fila en escritorio */
-    margin: 10px;
+    background-color: var(--color-background-secondary);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 0.2s;
+    width: calc(50% - 15px); /* Dos columnas en ancho medio */
+    max-width: 180px;
+}
+
+.channels-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
 
 .channels-list li a {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra el logo y el texto */
     padding: 15px 10px;
-    text-decoration: none;
-    font-family: var(--font-poppins);
-    font-weight: 600;
-    color: var(--color-texto);
-    background-color: var(--color-principal);
-    border: 1px solid var(--color-acento);
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.2s;
+    font-size: 1.0em;
+    font-family: var(--font-montserrat);
+    font-weight: 700;
+    height: 100%;
 }
 
-.channels-list li a:hover {
-    background-color: var(--color-acento);
-    color: var(--color-principal);
-    transform: translateY(-2px);
-}
-
-/* Adaptación a móviles: un canal por fila */
-@media (max-width: 600px) {
+/* Media query para hacer la lista más ancha en pantallas grandes */
+@media (min-width: 768px) {
     .channels-list li {
-        width: 100%;
-        margin: 5px 0;
+        width: calc(33.333% - 15px); /* Tres columnas */
     }
 }
-/* ------------------------------------------------ */
-/* Oculta la barra de navegación específicamente en la página de inicio */
-.home-page nav {
-    display: none;
+@media (min-width: 1024px) {
+    .channels-list li {
+        width: calc(25% - 15px); /* Cuatro columnas */
+    }
 }
+
+
+/* ======================================= */
+/* ESTILOS DE LOGOS              */
+/* ======================================= */
+
+/* Estilo base para todas las imágenes de logo */
+.channel-logo {
+    height: 18px; /* Altura estándar del logo en NAV */
+    width: auto;
+    margin-right: 8px; 
+    vertical-align: middle; 
+}
+
+/* Ajuste para los logos en la lista principal */
+.channels-list .channel-logo {
+    height: 25px; 
+    margin-right: 10px;
+}
+
+/* ======================================= */
+/* PROMOCIÓN IPTV (INDEX)          */
+/* ======================================= */
+
+.iptv-promo {
+    background-color: #2c2c2c; /* Tono ligeramente más claro que el fondo principal */
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+    margin: 40px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 188, 212, 0.5); /* Borde acentuado */
+}
+
+.download-button {
+    display: inline-block;
+    background-color: var(--color-acento); 
+    color: #000000; 
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+    font-family: var(--font-poppins);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.download-button:hover {
+    background-color: #00a0b5; 
+}
+
+
+/* ======================================= */
+/* FOOTER Y GITHUB             */
+/* ======================================= */
+
+footer {
+    background-color: var(--color-background-secondary);
+    padding: 15px 10px;
+    text-align: center;
+    border-top: 1px solid #333;
+    margin-top: auto; /* Empuja el footer hacia abajo */
+    
+    /* Para centrar el link y el texto */
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    gap: 5px; 
+}
+
+.github-link {
+    display: inline-block;
+    color: var(--color-text-secondary);
+    font-size: 20px; 
+    text-decoration: none;
+}
+
+.github-link:hover {
+    color: var(--color-acento); 
+}
+
+/* ======================================= */
+/* ESTILO PARA LOGO IMG          */
+/* ======================================= */
+
+.logo-display {
+    width: 100%;
+    max-width: 400px; 
+    height: auto;
+    margin: 30px auto; 
+    display: block; 
+    opacity: 0.8; 
+    }
