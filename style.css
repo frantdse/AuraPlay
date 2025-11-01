@@ -1,0 +1,188 @@
+/* Configuraciones generales para las fuentes */
+:root {
+    --color-principal: #1f2833; /* Gris oscuro para el fondo */
+    --color-texto: #ffffff; /* Blanco para el texto */
+    --color-acento: #45a29e; /* Tono turquesa para acentuar */
+    --color-fondo-nav: #1a232d; /* Fondo oscuro para el nav/footer */
+    --font-poppins: 'Poppins', sans-serif;
+    --font-montserrat: 'Montserrat', sans-serif;
+}
+
+/* Reseteo y fondo */
+body {
+    background-color: var(--color-principal);
+    color: var(--color-texto);
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-poppins); 
+    line-height: 1.6;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tipografía */
+h1 {
+    font-family: var(--font-montserrat);
+    font-weight: 700;
+    font-size: 2.5em;
+    margin-bottom: 0.1em;
+}
+
+h1 .montserrat {
+    color: var(--color-acento);
+}
+
+h1 .poppins {
+    font-family: var(--font-poppins);
+}
+
+.poppins-subtitle, .poppins-footer {
+    font-family: var(--font-poppins);
+    font-weight: 300;
+    font-size: 1.1em;
+    margin-top: 0;
+}
+
+.poppins-footer {
+    font-size: 0.8em;
+}
+
+/* --- ESTILOS DEL MENÚ DE NAVEGACIÓN --- */
+nav {
+    background-color: var(--color-fondo-nav);
+    padding: 10px 0;
+    border-bottom: 1px solid #3a4759;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 5px 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--color-texto);
+    font-family: var(--font-poppins);
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: var(--color-acento);
+    color: var(--color-fondo-nav);
+}
+/* ------------------------------------- */
+
+/* Contenido Principal y Reproductor */
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Estilos para hacer el Iframe Responsivo */
+.video-container {
+    position: relative;
+    width: 100%;
+    /* Relación de aspecto 16:9 - 56.25% de alto */
+    padding-top: 56.25%; 
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #000;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Cabecera y Pie de Página */
+header {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+footer {
+    padding: 15px 20px;
+    border-top: 1px solid #3a4759;
+    background-color: var(--color-fondo-nav);
+}
+
+/* AJUSTES PARA PÁGINAS DE DOS VIDEOS (Opt-in) */
+main[style*="column"] {
+    min-height: auto; 
+}
+
+/* --- ESTILOS PARA LA LISTA DE CANALES EN INDEX --- */
+.channels-list-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--color-fondo-nav);
+    border-radius: 8px;
+}
+
+.channels-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.channels-list li {
+    width: calc(50% - 20px); /* 2 canales por fila en escritorio */
+    margin: 10px;
+}
+
+.channels-list li a {
+    display: block;
+    padding: 15px 10px;
+    text-decoration: none;
+    font-family: var(--font-poppins);
+    font-weight: 600;
+    color: var(--color-texto);
+    background-color: var(--color-principal);
+    border: 1px solid var(--color-acento);
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.channels-list li a:hover {
+    background-color: var(--color-acento);
+    color: var(--color-principal);
+    transform: translateY(-2px);
+}
+
+/* Adaptación a móviles: un canal por fila */
+@media (max-width: 600px) {
+    .channels-list li {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+/* ------------------------------------------------ */
+/* Oculta la barra de navegación específicamente en la página de inicio */
+.home-page nav {
+    display: none;
+}
