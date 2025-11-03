@@ -34,10 +34,14 @@
     </nav>
     <header>
         <h1><span class="montserrat">RADIO</span> <span class="poppins">MITRE TV</span></h1>
-        <p class="poppins-subtitle">Transmisión EN VIVO</p>
+        <p class="poppins-subtitle">Selecciona tu transmisión</p>
     </header>
-    <main>
-        <div class="video-container">
+    <main style="flex-direction: column; padding: 10px 20px;">
+        
+        <h2 style="font-family: var(--font-montserrat); font-size: 1.5em; color: var(--color-acento); margin-bottom: 10px;">
+            Opción 1: Servidor Principal (M3U8 Player)
+        </h2>
+        <div class="video-container" style="margin-bottom: 40px;">
             <iframe 
                 src="https://www.m3u8player.online/embed/m3u8?url=https%3A%2F%2Flive-05-13-mitre.vodgc.net%2Flive-05-13-mitre%2Findex.m3u8" 
                 frameborder="0" 
@@ -45,9 +49,25 @@
                 allowfullscreen>
             </iframe>
         </div>
+
+        <h2 style="font-family: var(--font-montserrat); font-size: 1.5em; color: var(--color-acento); margin-bottom: 10px;">
+            Opción 2: YouTube (Video Específico de Respaldo)
+        </h2>
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/ybXIVVg6epw?autoplay=1&mute=0&controls=1&showinfo=0&rel=0&modestbranding=1" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        
     </main>
     <footer>
         <p class="poppins-footer">© 2025 Sitio Web de TV. Diseño Minimalista.</p>
+        <a href="https://github.com/frantdse/TVArgentinaOnline" target="_blank" class="github-link" title="Ver código en GitHub">
+            🔗
+        </a>
     </footer>
 </body>
 </html>
