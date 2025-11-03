@@ -34,9 +34,25 @@
     </nav>
     <header>
         <h1><span class="montserrat">IP</span> <span class="poppins">NOTICIAS</span></h1>
-        <p class="poppins-subtitle">Transmisión EN VIVO</p>
+        <p class="poppins-subtitle">Selecciona tu transmisión</p>
     </header>
-    <main>
+    <main style="flex-direction: column; padding: 10px 20px;">
+        
+        <h2 style="font-family: var(--font-montserrat); font-size: 1.5em; color: var(--color-acento); margin-bottom: 10px;">
+            Opción 1: Twitch (Fuente Principal)
+        </h2>
+        <div class="video-container" style="margin-bottom: 40px;">
+            <iframe 
+                src="https://player.twitch.tv/?channel=ipnoticias&parent=frantdse.github.io" 
+                frameborder="0" 
+                allow="autoplay; fullscreen" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <h2 style="font-family: var(--font-montserrat); font-size: 1.5em; color: var(--color-acento); margin-bottom: 10px;">
+            Opción 2: YouTube
+        </h2>
         <div class="video-container">
             <iframe 
                 src="https://www.youtube.com/embed/ECFbTfcv_yE?autoplay=1&mute=0&controls=1&showinfo=0&rel=0&modestbranding=1" 
@@ -45,6 +61,7 @@
                 allowfullscreen>
             </iframe>
         </div>
+        
     </main>
     <footer>
         <p class="poppins-footer">© 2025 Sitio Web de TV. Diseño Minimalista.</p>
