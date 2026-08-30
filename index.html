@@ -1,72 +1,83 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - TV En Vivo</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TvArgentinaOnline - Canales en Vivo</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html" style="font-weight: 700; color: #ffffff;">🏠 INICIO</a></li> 
-            <li><a href="a24.html">A24</a></li>
-            <li><a href="america.html">América</a></li>
-            <li><a href="bravo.html">Bravo TV</a></li>
-            <li><a href="c5n.html">C5N</a></li> 
-            <li><a href="canale.html">Canal E</a></li>
-            <li><a href="canal26.html">Canal 26</a></li>
-            <li><a href="canaldelaciudad.html">Canal de la Ciudad</a></li>
-            <li><a href="elnueve.html">El Nueve</a></li>
-            <li><a href="ciudadmagazine.html">Ciudad Magazine</a></li>
-            <li><a href="eltrece.html">El Trece</a></li>
-            <li><a href="ipnoticias.html">IP Noticias</a></li>
-            <li><a href="la100.html">La 100</a></li>
-            <li><a href="nettv.html">Net TV</a></li>
-            <li><a href="radiomitre.html">Radio Mitre TV</a></li>
-            <li><a href="telefe.html">Telefe</a></li>
-            <li><a href="tn.html">TN</a></li>
-            <li><a href="urbana.html">Urbana Teve</a></li>
-        </ul>
-    </nav>
-    <header>
-        <h1><span class="montserrat">TV</span> <span class="poppins">EN VIVO</span></h1>
-        <p class="poppins-subtitle">La mejor calidad con fuentes originales.</p>
-    </header>
-    
-    <main>
-        <div class="channels-list-container">
-            <h2 style="font-family: var(--font-montserrat); color: var(--color-acento); margin-bottom: 20px;">
-                Selecciona un Canal
-            </h2>
-            <ul class="channels-list">
-                <li><a href="a24.html">A24</a></li>
-                <li><a href="america.html">América</a></li>
-                <li><a href="bravo.html">Bravo TV</a></li>
-                <li><a href="c5n.html">C5N</a></li>
-                <li><a href="canale.html">Canal E</a></li>
-                <li><a href="canal26.html">Canal 26</a></li>
-                <li><a href="canaldelaciudad.html">Canal de la Ciudad</a></li>
-                <li><a href="elnueve.html">El Nueve</a></li>
-                <li><a href="ciudadmagazine.html">Ciudad Magazine</a></li>
-                <li><a href="eltrece.html">El Trece</a></li>
-                <li><a href="ipnoticias.html">IP Noticias</a></li>
-                <li><a href="la100.html">La 100</a></li>
-                <li><a href="nettv.html">Net TV</a></li>
-                <li><a href="radiomitre.html">Radio Mitre TV</a></li>
-                <li><a href="telefe.html">Telefe</a></li>
-                <li><a href="tn.html">TN</a></li>
-                <li><a href="urbana.html">Urbana Teve</a></li>
-                <li><a href="bloopers.html">Bloopers TV</a></li>
 
-            </ul> 
-        </div>
+  <header class="navbar">
+    <a href="index.html" class="logo"><span class="live-dot"></span>TV<span>ARGENTINA</span>ONLINE</a>
+  </header>
+
+  <div class="main-layout">
+    <aside class="sidebar">
+      <nav class="menu">
+        <a href="index.html" class="active">🏠 Inicio</a>
+        <a href="tn.html">🔴 TN</a>
+        <a href="c5n.html">📰 C5N</a>
+        <a href="a24.html">📰 A24</a>
+        <a href="canal26.html">📰 Canal 26</a>
+        <a href="canale.html">📰 Canal E</a>
+        <a href="ipnoticias.html">📰 IP Noticias</a>
+        <a href="telefe.html">📺 Telefe</a>
+        <a href="eltrece.html">📺 El Trece</a>
+        <a href="elnueve.html">📺 El Nueve</a>
+        <a href="america.html">📺 América TV</a>
+        <a href="nettv.html">📺 Net TV</a>
+        <a href="bravo.html">📺 Bravo TV</a>
+        <a href="canaldelaciudad.html">🎭 Canal de la Ciudad</a>
+        <a href="ciudadmagazine.html">🎭 Ciudad Magazine</a>
+        <a href="bloopers.html">🎭 Bloopers</a>
+        <a href="radiomitre.html">📻 Radio Mitre</a>
+        <a href="la100.html">📻 La 100</a>
+        <a href="urbana.html">📻 Urbana Play</a>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <div class="channel-details" style="margin-bottom: 25px;">
+        <h1>Bienvenido a TvArgentinaOnline</h1>
+        <p>Selecciona cualquier canal o radio para comenzar a transmitir en vivo.</p>
+      </div>
+
+      <h2 class="grid-title">📰 Noticias</h2>
+      <div class="channels-grid" style="margin-bottom: 30px;">
+        <a href="tn.html" class="card"><span>Noticias</span><h3>TN</h3></a>
+        <a href="c5n.html" class="card"><span>Noticias</span><h3>C5N</h3></a>
+        <a href="a24.html" class="card"><span>Noticias</span><h3>A24</h3></a>
+        <a href="canal26.html" class="card"><span>Noticias</span><h3>Canal 26</h3></a>
+        <a href="canale.html" class="card"><span>Noticias</span><h3>Canal E</h3></a>
+        <a href="ipnoticias.html" class="card"><span>Noticias</span><h3>IP Noticias</h3></a>
+      </div>
+
+      <h2 class="grid-title">📺 Televisión Abierta</h2>
+      <div class="channels-grid" style="margin-bottom: 30px;">
+        <a href="telefe.html" class="card"><span>Aire</span><h3>Telefe</h3></a>
+        <a href="eltrece.html" class="card"><span>Aire</span><h3>El Trece</h3></a>
+        <a href="elnueve.html" class="card"><span>Aire</span><h3>El Nueve</h3></a>
+        <a href="america.html" class="card"><span>Aire</span><h3>América TV</h3></a>
+        <a href="nettv.html" class="card"><span>Aire</span><h3>Net TV</h3></a>
+        <a href="bravo.html" class="card"><span>Aire</span><h3>Bravo TV</h3></a>
+      </div>
+
+      <h2 class="grid-title">🎭 Entretenimiento y Variedades</h2>
+      <div class="channels-grid" style="margin-bottom: 30px;">
+        <a href="canaldelaciudad.html" class="card"><span>Variedades</span><h3>Canal de la Ciudad</h3></a>
+        <a href="ciudadmagazine.html" class="card"><span>Espectáculos</span><h3>Ciudad Magazine</h3></a>
+        <a href="bloopers.html" class="card"><span>Humor</span><h3>Bloopers</h3></a>
+      </div>
+
+      <h2 class="grid-title">📻 Radios en Vivo</h2>
+      <div class="channels-grid">
+        <a href="radiomitre.html" class="card"><span>Radio</span><h3>Radio Mitre</h3></a>
+        <a href="la100.html" class="card"><span>Radio</span><h3>La 100</h3></a>
+        <a href="urbana.html" class="card"><span>Radio</span><h3>Urbana Play</h3></a>
+      </div>
     </main>
-    <footer>
-        <p class="poppins-footer">© 2025 Sitio Web de TV. Diseño Minimalista.</p>
-    </footer>
+  </div>
+
 </body>
 </html>
