@@ -34,11 +34,98 @@
         <a href="urbana.html">📻 Urbana Play</a>
       </nav>
     </aside>
-    <main class="content">
-      <div class="player-box">
-        <div class="video-responsive">
-          <iframe src="LINK_DE_REPRODUCTOR_TELEFE" allowfullscreen></iframe>
+<section class="align-items-center justify-content-center py-4" data-controller="instagram-embed x-embed">
+  <section class="container py-4">
+    <header class="d-flex justify-content-center mb-3">
+      <h2 class="fw-bold mb-0 text-inverted">Vivo</h2>
+    </header>
+
+    <ul class="nav nav-tabs d-flex pt-3 w-100 border-bottom border-2 border-primary" id="videoTab" role="tablist">
+      <li class="nav-item flex-fill text-center" role="presentation">
+        <a class="nav-link active fs-4 fw-semibold pb-2 pt-3 text-white border border-1 border-tertiary" href="javascript:void(0)" id="player-4-tab" role="tab" aria-selected="true">
+          Mirá Telefe en vivo&nbsp;
+        </a>
+      </li>
+    </ul>
+
+    <!-- Contenedor del reproductor -->
+    <div class="tab-content">
+      <div class="player">
+        <div class="container">
+          <div class="ratio ratio-16x9" id="player-container">
+            <div style="align-items:center;background:#000;color:#fff;display:flex;font-size:1rem;justify-content:center;" id="player-status">
+              Cargando transmisión...
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var LAMBDA_URL = "https://57j4mtvcjjf7siqnnvkixb5d3i0uvjei.lambda-url.us-east-1.on.aws/";
+      var STREAM_ID = "6a024684fd4ca6a938f3a118";
+      var CACHE_KEY = "ms_player_data_" + STREAM_ID;
+      var CACHE_TTL = 25 * 60 * 1000; // 25 minutos
+
+      function getCached() {
+        try {
+          var c = JSON.parse(sessionStorage.getItem(CACHE_KEY));
+          if (c && Date.now() < c.exp) return c.data;
+        } catch (e) {}
+        return null;
+      }
+
+      function setCache(data) {
+        try {
+          sessionStorage.setItem(
+            CACHE_KEY,
+            JSON.stringify({ data: data, exp: Date.now() + CACHE_TTL })
+          );
+        } catch (e) {}
+      }
+
+      function loadPlayer(data) {
+        var container = document.getElementById("player-container");
+        var src = "//mdstrm.com/live-stream/" + data.stream_id + "?player=" + data.player_id + "&access_token=" + data.access_token;
+        
+        container.innerHTML = '<iframe src="' + src + '" allow="autoplay; fullscreen; encrypted-media" frameborder="0" allowfullscreen allowscriptaccess="always" scrolling="no" style="width:100%;height:100%;"></iframe>';
+      }
+
+      function showError() {
+        var el = document.getElementById("player-status");
+        if (el) {
+          el.textContent = "Transmisión no disponible temporalmente. Recargá la página.";
+        }
+      }
+
+      // Intentar cargar desde la caché local
+      var cached = getCached();
+      if (cached) {
+        loadPlayer(cached);
+        return;
+      }
+
+      // Consulta al endpoint de Lambda para obtener el access_token actualizado
+      fetch(LAMBDA_URL + "?stream_id=" + STREAM_ID)
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          if (data && data.access_token) {
+            setCache(data);
+            loadPlayer(data);
+          } else {
+            showError();
+          }
+        })
+        .catch(function () {
+          showError();
+        });
+    })();
+  </script>
+</section>
         <div class="channel-details">
           <h1>Telefe</h1>
           <p>Televisión abierta en vivo.</p>
