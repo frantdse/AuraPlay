@@ -1,304 +1,280 @@
-/* ======================================= */
-/* BASE Y TIPOGRAFÍA           */
-/* ======================================= */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
-    /* Colores */
-    --color-background-primary: #1e1e1e; /* Fondo principal oscuro */
-    --color-background-secondary: #2a2a2a; /* Fondo para nav/header */
-    --color-text-primary: #ffffff; /* Texto principal blanco */
-    --color-text-secondary: #aaaaaa; /* Texto secundario gris */
-    --color-acento: #00bcd4; /* Azul/Cian para acentos */
-
-    /* Tipografía */
-    --font-montserrat: 'Montserrat', sans-serif;
-    --font-poppins: 'Poppins', sans-serif;
+  --bg-main: #0b0d14;
+  --bg-card: #141722;
+  --bg-sidebar: #0f111a;
+  --bg-hover: #1e2333;
+  --accent: #0088ff;
+  --accent-glow: rgba(0, 136, 255, 0.4);
+  --live-red: #ff3b30;
+  --text-main: #f0f3f9;
+  --text-muted: #8a93a6;
+  --border: rgba(255, 255, 255, 0.07);
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 body {
-    font-family: var(--font-poppins);
-    background-color: var(--color-background-primary);
-    color: var(--color-text-primary);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-a {
-    color: var(--color-text-primary);
-    text-decoration: none;
-    transition: color 0.3s, background-color 0.3s;
+/* Scrollbar personalizado estilo app */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: #232838;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
 }
 
-/* Clases de fuente */
-.montserrat {
-    font-family: var(--font-montserrat);
-    font-weight: 700;
-}
-.poppins {
-    font-family: var(--font-poppins);
-    font-weight: 600;
-}
-.poppins-subtitle {
-    font-family: var(--font-poppins);
-    font-weight: 300;
-    font-size: 1.1em;
-    color: var(--color-acento);
-}
-.poppins-footer {
-    font-family: var(--font-poppins);
-    font-weight: 300;
-    font-size: 0.85em;
-    color: var(--color-text-secondary);
+/* Header Navbar con Efecto Vidrio (Blur) */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background: rgba(15, 17, 26, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-/* ======================================= */
-/* NAVEGACIÓN              */
-/* ======================================= */
-
-nav {
-    background-color: var(--color-background-secondary);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    padding: 10px 0;
+.logo {
+  font-size: 1.35rem;
+  font-weight: 800;
+  text-decoration: none;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    overflow-x: auto; /* Permite desplazamiento horizontal en móviles */
-    padding: 0 10px;
-    white-space: nowrap; /* Evita que los enlaces salten de línea */
+.logo span {
+  color: var(--accent);
 }
 
-nav ul li {
-    flex-shrink: 0; /* Evita que los elementos se encojan */
-    margin: 0 8px;
+.live-dot {
+  width: 10px;
+  height: 10px;
+  background-color: var(--live-red);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--live-red);
+  animation: pulse 1.8s infinite;
 }
 
-nav ul li a {
-    display: flex; /* Para alinear el logo y el texto */
-    align-items: center;
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 0.9em;
-    font-weight: 500;
+@keyframes pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(255, 59, 48, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 59, 48, 0); }
 }
 
-nav ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--color-acento);
+/* Layout Principal */
+.main-layout {
+  display: flex;
+  flex: 1;
 }
 
-/* ======================================= */
-/* HEADER Y MAIN             */
-/* ======================================= */
-
-header {
-    text-align: center;
-    padding: 40px 20px 20px;
-    background-color: var(--color-background-secondary);
+/* Sidebar Navigation */
+.sidebar {
+  width: 250px;
+  background-color: var(--bg-sidebar);
+  padding: 24px 14px;
+  border-right: 1px solid var(--border);
 }
 
-header h1 {
-    font-size: 2.8em;
-    margin-bottom: 5px;
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-header h1 span:last-child {
-    color: var(--color-acento);
+.menu a {
+  color: var(--text-muted);
+  padding: 12px 18px;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-main {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 20px;
+.menu a:hover {
+  background-color: var(--bg-hover);
+  color: #ffffff;
+  transform: translateX(3px);
 }
 
-/* ======================================= */
-/* CONTENEDOR DE VIDEO           */
-/* ======================================= */
-
-.video-container {
-    position: relative;
-    width: 100%;
-    max-width: 900px;
-    padding-top: 56.25%; /* Relación de aspecto 16:9 */
-    margin: 20px auto;
-    background-color: #000;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
-    overflow: hidden;
+.menu a.active {
+  background: linear-gradient(135deg, var(--accent) 0%, #0055ff 100%);
+  color: #ffffff;
+  box-shadow: 0 6px 20px var(--accent-glow);
 }
 
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
+/* Área Contenedora */
+.content {
+  flex: 1;
+  padding: 30px;
+  max-width: 1300px;
 }
 
-/* ======================================= */
-/* LISTA DE CANALES (INDEX)       */
-/* ======================================= */
-
-.channels-list-container {
-    width: 100%;
-    max-width: 900px;
-    text-align: center;
-    margin: 20px auto;
-    padding: 0 10px;
+/* Contenedor de Video (Player) */
+.player-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  margin-bottom: 35px;
 }
 
-.channels-list {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    padding: 0;
+.video-responsive {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* Ratio 16:9 */
+  background: #000000;
 }
 
-.channels-list li {
-    background-color: var(--color-background-secondary);
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-    transition: transform 0.2s;
-    width: calc(50% - 15px); /* Dos columnas en ancho medio */
-    max-width: 180px;
+.video-responsive iframe, 
+.video-responsive video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
-.channels-list li:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+.channel-details {
+  padding: 24px;
 }
 
-.channels-list li a {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Centra el logo y el texto */
-    padding: 15px 10px;
-    font-size: 1.0em;
-    font-family: var(--font-montserrat);
-    font-weight: 700;
-    height: 100%;
+.channel-details h1 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  letter-spacing: -0.3px;
 }
 
-/* Media query para hacer la lista más ancha en pantallas grandes */
-@media (min-width: 768px) {
-    .channels-list li {
-        width: calc(33.333% - 15px); /* Tres columnas */
-    }
-}
-@media (min-width: 1024px) {
-    .channels-list li {
-        width: calc(25% - 15px); /* Cuatro columnas */
-    }
+.channel-details p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
 }
 
-
-/* ======================================= */
-/* ESTILOS DE LOGOS              */
-/* ======================================= */
-
-/* Estilo base para todas las imágenes de logo */
-.channel-logo {
-    height: 18px; /* Altura estándar del logo en NAV */
-    width: auto;
-    margin-right: 8px; 
-    vertical-align: middle; 
+/* Parrilla de Accesos Rápidos */
+.grid-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  letter-spacing: -0.3px;
 }
 
-/* Ajuste para los logos en la lista principal */
-.channels-list .channel-logo {
-    height: 25px; 
-    margin-right: 10px;
+.channels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 16px;
 }
 
-/* ======================================= */
-/* PROMOCIÓN IPTV (INDEX)          */
-/* ======================================= */
-
-.iptv-promo {
-    background-color: #2c2c2c; /* Tono ligeramente más claro que el fondo principal */
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    max-width: 600px;
-    width: 90%;
-    margin: 40px auto;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(0, 188, 212, 0.5); /* Borde acentuado */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 95px;
+  position: relative;
+  overflow: hidden;
 }
 
-.download-button {
-    display: inline-block;
-    background-color: var(--color-acento); 
-    color: #000000; 
-    padding: 12px 25px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.1em;
-    transition: background-color 0.3s;
-    font-family: var(--font-poppins);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top right, rgba(0, 136, 255, 0.15), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.download-button:hover {
-    background-color: #00a0b5; 
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 136, 255, 0.5);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 15px var(--accent-glow);
 }
 
+.card:hover::before {
+  opacity: 1;
+}
 
-/* ======================================= */
-/* FOOTER Y GITHUB             */
-/* ======================================= */
+.card span {
+  font-size: 0.68rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  margin-bottom: 8px;
+}
 
-footer {
-    background-color: var(--color-background-secondary);
-    padding: 15px 10px;
-    text-align: center;
-    border-top: 1px solid #333;
-    margin-top: auto; /* Empuja el footer hacia abajo */
-    
-    /* Para centrar el link y el texto */
-    display: flex;
+.card h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  z-index: 1;
+}
+
+/* Adaptación a Teléfonos y Tablets */
+@media (max-width: 850px) {
+  .main-layout { 
     flex-direction: column; 
-    align-items: center;
-    justify-content: center;
-    gap: 5px; 
+  }
+  
+  .sidebar { 
+    width: 100%; 
+    border-right: none; 
+    border-bottom: 1px solid var(--border);
+    padding: 12px;
+  }
+  
+  .menu { 
+    flex-direction: row; 
+    overflow-x: auto; 
+    padding-bottom: 6px;
+  }
+  
+  .menu a {
+    white-space: nowrap;
+  }
+
+  .content {
+    padding: 16px;
+  }
 }
 
-.github-link {
-    display: inline-block;
-    color: var(--color-text-secondary);
-    font-size: 20px; 
-    text-decoration: none;
-}
-
-.github-link:hover {
-    color: var(--color-acento); 
-}
-
-/* ======================================= */
-/* ESTILO PARA LOGO IMG          */
-/* ======================================= */
-
-.logo-display {
-    width: 100%;
-    max-width: 400px; 
-    height: auto;
-    margin: 30px auto; 
-    display: block; 
-    opacity: 0.8; 
-    }
