@@ -1,280 +1,133 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+<!-- Carga de tipografías: Plus Jakarta Sans y Outfit -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
-:root {
-  --bg-main: #0b0d14;
-  --bg-card: #141722;
-  --bg-sidebar: #0f111a;
-  --bg-hover: #1e2333;
-  --accent: #0088ff;
-  --accent-glow: rgba(0, 136, 255, 0.4);
-  --live-red: #ff3b30;
-  --text-main: #f0f3f9;
-  --text-muted: #8a93a6;
-  --border: rgba(255, 255, 255, 0.07);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-}
-
-body {
-  background-color: var(--bg-main);
-  color: var(--text-main);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Scrollbar personalizado estilo app */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg-main);
-}
-::-webkit-scrollbar-thumb {
-  background: #232838;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent);
-}
-
-/* Header Navbar con Efecto Vidrio (Blur) */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 32px;
-  background: rgba(15, 17, 26, 0.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.logo {
-  font-size: 1.35rem;
-  font-weight: 800;
-  text-decoration: none;
-  color: #ffffff;
-  letter-spacing: -0.5px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo span {
-  color: var(--accent);
-}
-
-.live-dot {
-  width: 10px;
-  height: 10px;
-  background-color: var(--live-red);
-  border-radius: 50%;
-  box-shadow: 0 0 12px var(--live-red);
-  animation: pulse 1.8s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7); }
-  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(255, 59, 48, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 59, 48, 0); }
-}
-
-/* Layout Principal */
-.main-layout {
-  display: flex;
-  flex: 1;
-}
-
-/* Sidebar Navigation */
-.sidebar {
-  width: 250px;
-  background-color: var(--bg-sidebar);
-  padding: 24px 14px;
-  border-right: 1px solid var(--border);
-}
-
-.menu {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.menu a {
-  color: var(--text-muted);
-  padding: 12px 18px;
-  text-decoration: none;
-  border-radius: 12px;
-  font-size: 0.92rem;
-  font-weight: 600;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.menu a:hover {
-  background-color: var(--bg-hover);
-  color: #ffffff;
-  transform: translateX(3px);
-}
-
-.menu a.active {
-  background: linear-gradient(135deg, var(--accent) 0%, #0055ff 100%);
-  color: #ffffff;
-  box-shadow: 0 6px 20px var(--accent-glow);
-}
-
-/* Área Contenedora */
-.content {
-  flex: 1;
-  padding: 30px;
-  max-width: 1300px;
-}
-
-/* Contenedor de Video (Player) */
-.player-box {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-  margin-bottom: 35px;
-}
-
-.video-responsive {
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%; /* Ratio 16:9 */
-  background: #000000;
-}
-
-.video-responsive iframe, 
-.video-responsive video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-.channel-details {
-  padding: 24px;
-}
-
-.channel-details h1 {
-  font-size: 1.7rem;
-  font-weight: 700;
-  margin-bottom: 6px;
-  letter-spacing: -0.3px;
-}
-
-.channel-details p {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-}
-
-/* Parrilla de Accesos Rápidos */
-.grid-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 18px;
-  letter-spacing: -0.3px;
-}
-
-.channels-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-  gap: 16px;
-}
-
-.card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 18px;
-  text-decoration: none;
-  color: #ffffff;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 95px;
-  position: relative;
-  overflow: hidden;
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at top right, rgba(0, 136, 255, 0.15), transparent 70%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(0, 136, 255, 0.5);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 15px var(--accent-glow);
-}
-
-.card:hover::before {
-  opacity: 1;
-}
-
-.card span {
-  font-size: 0.68rem;
-  color: var(--accent);
-  text-transform: uppercase;
-  font-weight: 800;
-  letter-spacing: 0.8px;
-  margin-bottom: 8px;
-}
-
-.card h3 {
-  font-size: 1.05rem;
-  font-weight: 600;
-  z-index: 1;
-}
-
-/* Adaptación a Teléfonos y Tablets */
-@media (max-width: 850px) {
-  .main-layout { 
-    flex-direction: column; 
+<style>
+  .stream-section {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: #0d0f14;
+    color: #f3f4f6;
+    padding: 2.5rem 1rem;
+    border-radius: 24px;
   }
-  
-  .sidebar { 
-    width: 100%; 
-    border-right: none; 
-    border-bottom: 1px solid var(--border);
+
+  .stream-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .stream-title-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .stream-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+  }
+
+  .live-badge {
+    background: linear-gradient(135deg, #ff2a5f 0%, #e60000 100%);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    box-shadow: 0 0 12px rgba(255, 42, 95, 0.4);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .live-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  /* Player Card */
+  .player-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #161922;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
     padding: 12px;
-  }
-  
-  .menu { 
-    flex-direction: row; 
-    overflow-x: auto; 
-    padding-bottom: 6px;
-  }
-  
-  .menu a {
-    white-space: nowrap;
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
   }
 
-  .content {
-    padding: 16px;
+  .player-ratio {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    border-radius: 14px;
+    overflow: hidden;
+    background: #000;
   }
-}
 
+  .player-ratio iframe,
+  .player-status {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .player-status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #9ca3af;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  .spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top-color: #e60000;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .stream-footer {
+    max-width: 1000px;
+    margin: 1rem auto 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+</style>
