@@ -3,291 +3,202 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TV Argentina Online</title>
+  <title>DirectoAR - Streaming & TV en Vivo</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Fuentes Google para matching exacto con las variables CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
+  <!-- NAVEGACIÓN PRINCIPAL -->
   <header class="navbar">
-    <a href="index.html" class="logo">
-      <span class="live-dot"></span>TV<span>ARGENTINA</span>
-    </a>
-    
+    <div class="logo">
+      <div class="live-dot"></div>
+      <span>AURA</span><span>PLAY</span>
+    </div>
+
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Buscar canal..." onkeyup="filterChannels()">
-      <span id="searchCounter" class="search-counter"></span>
+      <input type="text" placeholder="Buscar canal, señal o género..." id="searchInput">
+      <span class="search-counter">LIVE</span>
     </div>
 
     <div class="nav-tools">
-      <button class="btn-random" onclick="zappingAleatorio()">🎲 Zapping</button>
-      <button class="theme-toggle-btn" id="themeBtn" onclick="toggleTheme()">🌙</button>
+      <button class="btn-random" id="btnRandom">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>
+        Aleatorio
+      </button>
+      <button class="theme-toggle-btn" id="themeToggle" title="Cambiar Tema">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
     </div>
   </header>
 
+  <!-- ESTRUCTURA PRINCIPAL -->
   <div class="main-layout">
     
+    <!-- SIDEBAR -->
     <aside class="sidebar">
       <div class="menu-category-label">Categorías</div>
       <nav class="menu">
-        <a href="index.html" class="active">🏠 Inicio</a>
-        <a href="#noticias">📰 Noticias</a>
-        <a href="#aire">📺 Aire</a>
-        <a href="#variedades">🎭 Variedades</a>
-        <a href="#radios">📻 Radios</a>
+        <a href="#" class="active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          Inicio
+        </a>
+        <a href="#">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+          Noticias
+        </a>
+        <a href="#">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>
+          Televisión
+        </a>
+        <a href="#">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M49 10a5 5 0 0 0 0 10"/><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
+          Radios FM
+        </a>
       </nav>
     </aside>
 
+    <!-- CONTENIDO -->
     <main class="content">
       
-      <section class="hero-banner">
+      <!-- BANNER HERO -->
+      <section class="hero-banner animate-fade">
         <div class="hero-text">
-          <h1>Tu televisión argentina, en un solo lugar</h1>
-          <p>Seleccioná cualquier señal para empezar a transmitir en vivo.</p>
+          <h1>Señales en Vivo & Transmisión HD</h1>
+          <p>Explorá la grilla interactiva con reproductores optimizados para Smart TV, móviles y escritorio.</p>
         </div>
         <div class="hero-widget">
-          <span class="widget-title">⚡ MODO VIVO</span>
-          <p>Transmisión estable</p>
+          <span class="widget-title">ESTADO DE RED</span>
+          <strong style="font-size: 0.9rem; color: #22c55e;">● 100% Operativo</strong>
         </div>
       </section>
 
-      <!-- NOTICIAS -->
-      <section id="noticias" class="section-group">
-        <h2 class="grid-title">📰 Noticias</h2>
+      <!-- GRILLA DE CANALES DE NOTICIAS -->
+      <section class="section-group animate-fade">
+        <h2 class="grid-title">Noticias & Actualidad</h2>
         <div class="channels-grid">
           
-          <a href="tn.html" class="card" data-name="tn noticias">
+          <a href="#" class="card">
             <div class="thumbnail-wrapper">
-              <img src="https://img.youtube.com/vi/gCNeDWCI0vo/hqdefault.jpg" alt="" class="card-thumb" onerror="this.style.display='none'">
-              <span class="badge news">Noticias</span>
-              <span class="play-overlay">▶</span>
+              <span class="badge news">ENVIVO</span>
+              <img src="https://picsum.photos/400/225?random=1" alt="TN" class="card-thumb">
+              <div class="play-overlay">▶</div>
             </div>
             <div class="card-body">
-              <h3>TN</h3>
+              <h3>TN - Todo Noticias</h3>
             </div>
           </a>
 
-          <a href="c5n.html" class="card" data-name="c5n noticias">
+          <a href="#" class="card">
             <div class="thumbnail-wrapper">
-              <span class="badge news">Noticias</span>
-              <span class="play-overlay">▶</span>
+              <span class="badge news">ENVIVO</span>
+              <img src="https://picsum.photos/400/225?random=2" alt="C5N" class="card-thumb">
+              <div class="play-overlay">▶</div>
             </div>
             <div class="card-body">
               <h3>C5N</h3>
             </div>
           </a>
 
-          <a href="a24.html" class="card" data-name="a24 noticias">
+          <a href="#" class="card">
             <div class="thumbnail-wrapper">
-              <span class="badge news">Noticias</span>
-              <span class="play-overlay">▶</span>
+              <span class="badge news">ENVIVO</span>
+              <img src="https://picsum.photos/400/225?random=3" alt="LN+" class="card-thumb">
+              <div class="play-overlay">▶</div>
             </div>
             <div class="card-body">
-              <h3>A24</h3>
+              <h3>La Nación +</h3>
             </div>
           </a>
 
-          <a href="canal26.html" class="card" data-name="canal 26 noticias">
+          <a href="#" class="card">
             <div class="thumbnail-wrapper">
-              <span class="badge news">Noticias</span>
-              <span class="play-overlay">▶</span>
+              <span class="badge news">ENVIVO</span>
+              <img src="https://picsum.photos/400/225?random=4" alt="Crónica" class="card-thumb">
+              <div class="play-overlay">▶</div>
             </div>
             <div class="card-body">
-              <h3>Canal 26</h3>
-            </div>
-          </a>
-
-          <a href="canale.html" class="card" data-name="canal e noticias">
-            <div class="thumbnail-wrapper">
-              <span class="badge news">Noticias</span>
-              <span class="play-overlay">▶</span>
-            </div>
-            <div class="card-body">
-              <h3>Canal E</h3>
-            </div>
-          </a>
-
-          <a href="ipnoticias.html" class="card" data-name="ip noticias">
-            <div class="thumbnail-wrapper">
-              <span class="badge news">Noticias</span>
-              <span class="play-overlay">▶</span>
-            </div>
-            <div class="card-body">
-              <h3>IP Noticias</h3>
+              <h3>Crónica TV</h3>
             </div>
           </a>
 
         </div>
       </section>
 
-      <!-- AIRE -->
-      <section id="aire" class="section-group">
-        <h2 class="grid-title">📺 Televisión Abierta</h2>
+      <!-- GRILLA DE CANALES DE AIRE / VARIETÉ -->
+      <section class="section-group animate-fade">
+        <h2 class="grid-title">Televisión Abierta</h2>
         <div class="channels-grid">
           
-          <a href="telefe.html" class="card" data-name="telefe aire">
+          <a href="#" class="card">
             <div class="thumbnail-wrapper">
-              <span class="badge air">Aire</span>
-              <span class="play-overlay">▶</span>
+              <span class="badge air">AIRE</span>
+              <img src="https://picsum.photos/400/225?random=5" alt="Telefe" class="card-thumb">
+              <div class="play-overlay">▶</div>
             </div>
             <div class="card-body">
               <h3>Telefe</h3>
             </div>
           </a>
 
-          <a href="eltrece.html" class="card" data-name="el trece aire">
+          <a href="#" class="card">
             <div class="thumbnail-wrapper">
-              <span class="badge air">Aire</span>
-              <span class="play-overlay">▶</span>
+              <span class="badge air">AIRE</span>
+              <img src="https://picsum.photos/400/225?random=6" alt="El Trece" class="card-thumb">
+              <div class="play-overlay">▶</div>
             </div>
             <div class="card-body">
               <h3>El Trece</h3>
             </div>
           </a>
 
-          <a href="elnueve.html" class="card" data-name="el nueve aire">
+          <a href="#" class="card">
             <div class="thumbnail-wrapper">
-              <span class="badge air">Aire</span>
-              <span class="play-overlay">▶</span>
-            </div>
-            <div class="card-body">
-              <h3>El Nueve</h3>
-            </div>
-          </a>
-
-          <a href="america.html" class="card" data-name="america tv aire">
-            <div class="thumbnail-wrapper">
-              <span class="badge air">Aire</span>
-              <span class="play-overlay">▶</span>
+              <span class="badge variety">VARIEDAD</span>
+              <img src="https://picsum.photos/400/225?random=7" alt="América TV" class="card-thumb">
+              <div class="play-overlay">▶</div>
             </div>
             <div class="card-body">
               <h3>América TV</h3>
             </div>
           </a>
 
-          <a href="nettv.html" class="card" data-name="net tv aire">
+          <a href="#" class="card">
             <div class="thumbnail-wrapper">
-              <span class="badge air">Aire</span>
-              <span class="play-overlay">▶</span>
+              <span class="badge radio">FM</span>
+              <img src="https://picsum.photos/400/225?random=8" alt="Radio Stream" class="card-thumb">
+              <div class="play-overlay">▶</div>
             </div>
             <div class="card-body">
-              <h3>Net TV</h3>
-            </div>
-          </a>
-
-          <a href="bravo.html" class="card" data-name="bravo tv aire">
-            <div class="thumbnail-wrapper">
-              <span class="badge air">Aire</span>
-              <span class="play-overlay">▶</span>
-            </div>
-            <div class="card-body">
-              <h3>Bravo TV</h3>
+              <h3>Aspen 102.3 Stream</h3>
             </div>
           </a>
 
         </div>
       </section>
 
-      <!-- VARIEDADES -->
-      <section id="variedades" class="section-group">
-        <h2 class="grid-title">🎭 Variedades</h2>
-        <div class="channels-grid">
-          
-          <a href="canaldelaciudad.html" class="card" data-name="canal de la ciudad">
-            <div class="thumbnail-wrapper">
-              <span class="badge variety">Variedades</span>
-              <span class="play-overlay">▶</span>
-            </div>
-            <div class="card-body">
-              <h3>Canal de la Ciudad</h3>
-            </div>
-          </a>
-
-          <a href="ciudadmagazine.html" class="card" data-name="ciudad magazine">
-            <div class="thumbnail-wrapper">
-              <span class="badge variety">Variedades</span>
-              <span class="play-overlay">▶</span>
-            </div>
-            <div class="card-body">
-              <h3>Ciudad Magazine</h3>
-            </div>
-          </a>
-
+      <!-- FOOTER -->
+      <footer class="footer">
+        <div class="footer-links">
+          <a href="#">Términos de servicio</a>
+          <a href="#">Privacidad</a>
+          <a href="#">Soporte Técnico</a>
         </div>
-      </section>
-
-      <!-- RADIOS -->
-      <section id="radios" class="section-group">
-        <h2 class="grid-title">📻 Radios</h2>
-        <div class="channels-grid">
-          
-          <a href="radiomitre.html" class="card" data-name="radio mitre">
-            <div class="thumbnail-wrapper">
-              <span class="badge radio">Radio</span>
-              <span class="play-overlay">📻</span>
-            </div>
-            <div class="card-body">
-              <h3>Radio Mitre</h3>
-            </div>
-          </a>
-
-          <a href="la100.html" class="card" data-name="la 100">
-            <div class="thumbnail-wrapper">
-              <span class="badge radio">Radio</span>
-              <span class="play-overlay">📻</span>
-            </div>
-            <div class="card-body">
-              <h3>La 100</h3>
-            </div>
-          </a>
-
-          <a href="urbana.html" class="card" data-name="urbana play">
-            <div class="thumbnail-wrapper">
-              <span class="badge radio">Radio</span>
-              <span class="play-overlay">📻</span>
-            </div>
-            <div class="card-body">
-              <h3>Urbana Play</h3>
-            </div>
-          </a>
-
-        </div>
-      </section>
+        <p>© 2026 DirectoAR Network. Todos los derechos reservados.</p>
+      </footer>
 
     </main>
   </div>
 
+  <!-- SCRIPT PARA INTERACTIVIDAD Y TEMA CLARO/OSCURO -->
   <script>
-    function filterChannels() {
-      const input = document.getElementById('searchInput').value.toLowerCase();
-      const cards = document.querySelectorAll('.card');
-      const counter = document.getElementById('searchCounter');
-      let visibleCount = 0;
-
-      cards.forEach(card => {
-        const name = card.getAttribute('data-name');
-        if (name.includes(input)) {
-          card.style.display = 'flex';
-          visibleCount++;
-        } else {
-          card.style.display = 'none';
-        }
-      });
-
-      counter.textContent = input ? `${visibleCount}` : '';
-    }
-
-    function zappingAleatorio() {
-      const cards = Array.from(document.querySelectorAll('.card'));
-      const randomCard = cards[Math.floor(Math.random() * cards.length)];
-      if (randomCard) window.location.href = randomCard.getAttribute('href');
-    }
-
-    function toggleTheme() {
+    const themeBtn = document.getElementById('themeToggle');
+    themeBtn.addEventListener('click', () => {
       document.body.classList.toggle('light-theme');
-      const btn = document.getElementById('themeBtn');
-      btn.textContent = document.body.classList.contains('light-theme') ? '☀️' : '🌙';
-    }
+    });
   </script>
-
-</body/>
-</html>
+</body>
+                </html>
