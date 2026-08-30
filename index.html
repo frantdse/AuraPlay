@@ -3,81 +3,153 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TvArgentinaOnline - Canales en Vivo</title>
+  <title>TvArgentinaOnline - Canales y Radios en Vivo</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <header class="navbar">
-    <a href="index.html" class="logo"><span class="live-dot"></span>TV<span>ARGENTINA</span>ONLINE</a>
+    <a href="index.html" class="logo">
+      <span class="live-dot"></span>TV<span>ARGENTINA</span>ONLINE
+    </a>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Buscar canal o radio..." onkeyup="filterChannels()">
+    </div>
   </header>
 
   <div class="main-layout">
     <aside class="sidebar">
       <nav class="menu">
         <a href="index.html" class="active">🏠 Inicio</a>
-        <a href="tn.html">🔴 TN</a>
-        <a href="c5n.html">📰 C5N</a>
-        <a href="a24.html">📰 A24</a>
-        <a href="canal26.html">📰 Canal 26</a>
-        <a href="canale.html">📰 Canal E</a>
-        <a href="ipnoticias.html">📰 IP Noticias</a>
-        <a href="telefe.html">📺 Telefe</a>
-        <a href="eltrece.html">📺 El Trece</a>
-        <a href="elnueve.html">📺 El Nueve</a>
-        <a href="america.html">📺 América TV</a>
-        <a href="nettv.html">📺 Net TV</a>
-        <a href="bravo.html">📺 Bravo TV</a>
-        <a href="canaldelaciudad.html">🎭 Canal de la Ciudad</a>
-        <a href="ciudadmagazine.html">🎭 Ciudad Magazine</a>
-        <a href="bloopers.html">🎭 Bloopers</a>
-        <a href="radiomitre.html">📻 Radio Mitre</a>
-        <a href="la100.html">📻 La 100</a>
-        <a href="urbana.html">📻 Urbana Play</a>
+        <a href="#noticias">📰 Noticias</a>
+        <a href="#aire">📺 Aire</a>
+        <a href="#variedades">🎭 Variedades</a>
+        <a href="#radios">📻 Radios</a>
       </nav>
     </aside>
 
     <main class="content">
-      <div class="channel-details" style="margin-bottom: 25px;">
-        <h1>Bienvenido a TvArgentinaOnline</h1>
-        <p>Selecciona cualquier canal o radio para comenzar a transmitir en vivo.</p>
-      </div>
+      <section class="hero-banner">
+        <h1>Tu televisión argentina, en un solo lugar</h1>
+        <p>Elegí una señal para empezar a reproducir contenido en vivo.</p>
+      </section>
 
-      <h2 class="grid-title">📰 Noticias</h2>
-      <div class="channels-grid" style="margin-bottom: 30px;">
-        <a href="tn.html" class="card"><span>Noticias</span><h3>TN</h3></a>
-        <a href="c5n.html" class="card"><span>Noticias</span><h3>C5N</h3></a>
-        <a href="a24.html" class="card"><span>Noticias</span><h3>A24</h3></a>
-        <a href="canal26.html" class="card"><span>Noticias</span><h3>Canal 26</h3></a>
-        <a href="canale.html" class="card"><span>Noticias</span><h3>Canal E</h3></a>
-        <a href="ipnoticias.html" class="card"><span>Noticias</span><h3>IP Noticias</h3></a>
-      </div>
+      <!-- NOTICIAS -->
+      <section id="noticias" class="section-group">
+        <h2 class="grid-title">📰 Noticias</h2>
+        <div class="channels-grid">
+          <a href="tn.html" class="card" data-name="tn noticias">
+            <span class="badge news">Noticias</span>
+            <h3>TN</h3>
+          </a>
+          <a href="c5n.html" class="card" data-name="c5n noticias">
+            <span class="badge news">Noticias</span>
+            <h3>C5N</h3>
+          </a>
+          <a href="a24.html" class="card" data-name="a24 noticias">
+            <span class="badge news">Noticias</span>
+            <h3>A24</h3>
+          </a>
+          <a href="canal26.html" class="card" data-name="canal 26 noticias">
+            <span class="badge news">Noticias</span>
+            <h3>Canal 26</h3>
+          </a>
+          <a href="canale.html" class="card" data-name="canal e noticias economia">
+            <span class="badge news">Noticias</span>
+            <h3>Canal E</h3>
+          </a>
+          <a href="ipnoticias.html" class="card" data-name="ip noticias informacion periodistica">
+            <span class="badge news">Noticias</span>
+            <h3>IP Noticias</h3>
+          </a>
+        </div>
+      </section>
 
-      <h2 class="grid-title">📺 Televisión Abierta</h2>
-      <div class="channels-grid" style="margin-bottom: 30px;">
-        <a href="telefe.html" class="card"><span>Aire</span><h3>Telefe</h3></a>
-        <a href="eltrece.html" class="card"><span>Aire</span><h3>El Trece</h3></a>
-        <a href="elnueve.html" class="card"><span>Aire</span><h3>El Nueve</h3></a>
-        <a href="america.html" class="card"><span>Aire</span><h3>América TV</h3></a>
-        <a href="nettv.html" class="card"><span>Aire</span><h3>Net TV</h3></a>
-        <a href="bravo.html" class="card"><span>Aire</span><h3>Bravo TV</h3></a>
-      </div>
+      <!-- TELEVISIÓN ABIERTA / AIRE -->
+      <section id="aire" class="section-group">
+        <h2 class="grid-title">📺 Televisión Abierta</h2>
+        <div class="channels-grid">
+          <a href="telefe.html" class="card" data-name="telefe aire">
+            <span class="badge air">Aire</span>
+            <h3>Telefe</h3>
+          </a>
+          <a href="eltrece.html" class="card" data-name="el trece aire canal 13">
+            <span class="badge air">Aire</span>
+            <h3>El Trece</h3>
+          </a>
+          <a href="elnueve.html" class="card" data-name="el nueve aire canal 9">
+            <span class="badge air">Aire</span>
+            <h3>El Nueve</h3>
+          </a>
+          <a href="america.html" class="card" data-name="america tv aire">
+            <span class="badge air">Aire</span>
+            <h3>América TV</h3>
+          </a>
+          <a href="nettv.html" class="card" data-name="net tv aire">
+            <span class="badge air">Aire</span>
+            <h3>Net TV</h3>
+          </a>
+          <a href="bravo.html" class="card" data-name="bravo tv aire">
+            <span class="badge air">Aire</span>
+            <h3>Bravo TV</h3>
+          </a>
+        </div>
+      </section>
 
-      <h2 class="grid-title">🎭 Entretenimiento y Variedades</h2>
-      <div class="channels-grid" style="margin-bottom: 30px;">
-        <a href="canaldelaciudad.html" class="card"><span>Variedades</span><h3>Canal de la Ciudad</h3></a>
-        <a href="ciudadmagazine.html" class="card"><span>Espectáculos</span><h3>Ciudad Magazine</h3></a>
-        <a href="bloopers.html" class="card"><span>Humor</span><h3>Bloopers</h3></a>
-      </div>
+      <!-- ENTRETENIMIENTO Y VARIEDADES -->
+      <section id="variedades" class="section-group">
+        <h2 class="grid-title">🎭 Entretenimiento y Variedades</h2>
+        <div class="channels-grid">
+          <a href="canaldelaciudad.html" class="card" data-name="canal de la ciudad variedades caba">
+            <span class="badge variety">Variedades</span>
+            <h3>Canal de la Ciudad</h3>
+          </a>
+          <a href="ciudadmagazine.html" class="card" data-name="ciudad magazine espectaculos">
+            <span class="badge variety">Espectáculos</span>
+            <h3>Ciudad Magazine</h3>
+          </a>
+          <a href="bloopers.html" class="card" data-name="bloopers humor">
+            <span class="badge variety">Humor</span>
+            <h3>Bloopers</h3>
+          </a>
+        </div>
+      </section>
 
-      <h2 class="grid-title">📻 Radios en Vivo</h2>
-      <div class="channels-grid">
-        <a href="radiomitre.html" class="card"><span>Radio</span><h3>Radio Mitre</h3></a>
-        <a href="la100.html" class="card"><span>Radio</span><h3>La 100</h3></a>
-        <a href="urbana.html" class="card"><span>Radio</span><h3>Urbana Play</h3></a>
-      </div>
+      <!-- RADIOS EN VIVO -->
+      <section id="radios" class="section-group">
+        <h2 class="grid-title">📻 Radios en Vivo</h2>
+        <div class="channels-grid">
+          <a href="radiomitre.html" class="card" data-name="radio mitre am 790">
+            <span class="badge radio">Radio</span>
+            <h3>Radio Mitre</h3>
+          </a>
+          <a href="la100.html" class="card" data-name="la 100 fm 99.9">
+            <span class="badge radio">Radio</span>
+            <h3>La 100</h3>
+          </a>
+          <a href="urbana.html" class="card" data-name="urbana play fm 104.3">
+            <span class="badge radio">Radio</span>
+            <h3>Urbana Play</h3>
+          </a>
+        </div>
+      </section>
     </main>
   </div>
 
+  <script>
+    function filterChannels() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+
+      cards.forEach(card => {
+        const name = card.getAttribute('data-name');
+        if (name.includes(input)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
