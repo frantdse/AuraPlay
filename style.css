@@ -9,7 +9,7 @@
   --bg-surface: #12151e;
   --bg-card: #181c28;
   --bg-hover: #222838;
-  --bg-glass: rgba(18, 21, 30, 0.75);
+  --bg-glass: rgba(18, 21, 30, 0.85);
   
   /* Acentos y Neón */
   --accent-primary: #0088ff;
@@ -113,7 +113,7 @@ body {
   letter-spacing: -0.02em;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.2rem;
 }
 
 .logo span {
@@ -127,7 +127,7 @@ body {
   gap: 0.5rem;
   background: rgba(255, 59, 48, 0.12);
   border: 1px solid rgba(255, 59, 48, 0.3);
-  padding: 0.25rem 0.75rem;
+  padding: 0.35rem 0.85rem;
   border-radius: var(--radius-full);
   font-size: 0.75rem;
   font-weight: 700;
@@ -146,19 +146,9 @@ body {
 }
 
 @keyframes pulse-live {
-  0% {
-    transform: scale(0.9);
-    opacity: 0.8;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 1;
-    box-shadow: 0 0 14px var(--live-red);
-  }
-  100% {
-    transform: scale(0.9);
-    opacity: 0.8;
-  }
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 14px var(--live-red); }
+  100% { transform: scale(0.9); opacity: 0.8; }
 }
 
 /* ==========================================
@@ -268,7 +258,6 @@ body {
   border: 0;
 }
 
-/* Estado de Carga o Error */
 .player-placeholder {
   display: flex;
   flex-direction: column;
@@ -311,89 +300,243 @@ body {
 }
 
 /* ==========================================
-   6. PARRILLA DE CANALES Y TARJETAS (GRID)
+   6. FILTROS DE CATEGORÍA
    ========================================== */
-.section-header {
+.category-filters {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.25rem;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scrollbar-width: none;
+}
+.category-filters::-webkit-scrollbar { display: none; }
+
+.filter-btn {
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
 }
 
+.filter-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-main);
+}
+
+.filter-btn.active {
+  background: var(--text-main);
+  color: var(--bg-main);
+  border-color: var(--text-main);
+}
+
+/* ==========================================
+   7. TARJETAS DE CANALES CON MINIATURAS
+   ========================================== */
 .section-title {
   font-family: var(--font-heading);
   font-size: 1.35rem;
   font-weight: 700;
   color: var(--text-main);
   letter-spacing: -0.01em;
+  margin-bottom: 1.25rem;
 }
 
 .channels-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 1.25rem;
-  margin-bottom: 2.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
 }
 
-.card {
+.channel-card {
   background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  padding: 1.25rem;
-  text-decoration: none;
-  color: var(--text-main);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 110px;
-  position: relative;
   overflow: hidden;
+  border: 1px solid transparent;
   transition: all var(--transition-normal);
+  position: relative;
 }
 
-/* Resplandor al hacer hover */
-.card::before {
-  content: '';
+.channel-card:hover {
+  border-color: var(--border-focus);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.8), var(--shadow-glow);
+  background: var(--bg-hover);
+}
+
+.card-thumbnail {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  overflow: hidden;
+}
+
+.card-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.channel-card:hover .card-thumbnail img {
+  transform: scale(1.08);
+}
+
+.thumbnail-badges {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+}
+
+.badge-live {
+  background: rgba(255, 59, 48, 0.9);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  letter-spacing: 0.05em;
+  backdrop-filter: blur(4px);
+}
+
+.badge-quality {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 6px;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+}
+
+.card-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at top right, var(--accent-glow), transparent 70%);
+  background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.4) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   opacity: 0;
-  transition: opacity var(--transition-normal);
+  transition: opacity 0.3s ease;
+  z-index: 5;
 }
 
-.card:hover {
-  transform: translateY(-6px);
-  border-color: var(--border-focus);
-  box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.8), var(--shadow-glow);
-  background: var(--bg-hover);
-}
-
-.card:hover::before {
+.channel-card:hover .card-overlay {
   opacity: 1;
 }
 
-.card-tag {
-  font-size: 0.7rem;
-  color: var(--accent-primary);
-  text-transform: uppercase;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  z-index: 1;
+.play-btn {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transform: scale(0.8) translateY(10px);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.play-btn svg {
+  width: 24px;
+  height: 24px;
+  margin-left: 3px;
+}
+
+.channel-card:hover .play-btn {
+  transform: scale(1) translateY(0);
+}
+
+.play-btn:hover {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  transform: scale(1.1) !important;
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.card-info {
+  padding: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.card-text {
+  flex: 1;
+  overflow: hidden;
 }
 
 .card-title {
   font-family: var(--font-heading);
   font-size: 1.1rem;
-  font-weight: 600;
-  z-index: 1;
-  margin-top: 0.5rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-category {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.fav-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.fav-btn svg {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.2s;
+}
+
+.fav-btn:hover {
+  color: #ff2a5f;
+  background: rgba(255, 42, 95, 0.1);
+}
+
+.fav-btn:active svg {
+  transform: scale(0.8);
 }
 
 /* ==========================================
-   7. DISEÑO RESPONSIVO (MOBILE & TABLET)
+   8. DISEÑO RESPONSIVO (MOBILE & TABLET)
    ========================================== */
 @media (max-width: 900px) {
   .main-layout {
@@ -422,7 +565,7 @@ body {
   }
 
   .channels-grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
   }
-}
+                                          }
