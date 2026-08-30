@@ -1,133 +1,428 @@
-<!-- Carga de tipografías: Plus Jakarta Sans y Outfit -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
-<style>
-  .stream-section {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    background: #0d0f14;
-    color: #f3f4f6;
-    padding: 2.5rem 1rem;
-    border-radius: 24px;
+/* ==========================================
+   1. VARIABLES DE SISTEMA Y TEMA OSCURO
+   ========================================== */
+:root {
+  /* Paleta Principal */
+  --bg-main: #0a0c10;
+  --bg-surface: #12151e;
+  --bg-card: #181c28;
+  --bg-hover: #222838;
+  --bg-glass: rgba(18, 21, 30, 0.75);
+  
+  /* Acentos y Neón */
+  --accent-primary: #0088ff;
+  --accent-primary-hover: #0066cc;
+  --accent-glow: rgba(0, 136, 255, 0.35);
+  --live-red: #ff3b30;
+  --live-glow: rgba(255, 59, 48, 0.4);
+  
+  /* Tipografía y Colores de Texto */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --text-main: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  
+  /* Bordes y Sombras */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(0, 136, 255, 0.5);
+  --shadow-lg: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+  --shadow-glow: 0 0 20px var(--accent-glow);
+  
+  /* Radio de Bordes */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  
+  /* Transiciones */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================
+   2. REINICIO GENERAL Y BASE
+   ========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar Personalizado */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-hover);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* ==========================================
+   3. BARRA DE NAVEGACIÓN (HEADER)
+   ========================================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-decoration: none;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo span {
+  color: var(--accent-primary);
+}
+
+/* Insignia en Vivo con Pulso */
+.live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 59, 48, 0.12);
+  border: 1px solid rgba(255, 59, 48, 0.3);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--live-red);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--live-red);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--live-red);
+  animation: pulse-live 1.6s infinite;
+}
+
+@keyframes pulse-live {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
   }
-
-  .stream-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1.5rem;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+    box-shadow: 0 0 14px var(--live-red);
   }
-
-  .stream-title-group {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  100% {
+    transform: scale(0.9);
+    opacity: 0.8;
   }
+}
 
-  .stream-title {
-    font-family: 'Outfit', sans-serif;
-    font-size: 1.75rem;
-    font-weight: 700;
-    margin: 0;
-    color: #ffffff;
-    letter-spacing: -0.02em;
-  }
+/* ==========================================
+   4. ESTRUCTURA Y MENÚ LATERAL (SIDEBAR)
+   ========================================== */
+.main-layout {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
 
-  .live-badge {
-    background: linear-gradient(135deg, #ff2a5f 0%, #e60000 100%);
-    color: #ffffff;
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 20px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    box-shadow: 0 0 12px rgba(255, 42, 95, 0.4);
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
+.sidebar {
+  width: 260px;
+  background-color: var(--bg-surface);
+  padding: 1.75rem 1rem;
+  border-right: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 
-  .live-badge::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    background-color: #fff;
-    border-radius: 50%;
-    animation: pulse 1.5s infinite;
-  }
+.sidebar-title {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  padding: 0 0.75rem 0.5rem 0.75rem;
+}
 
-  @keyframes pulse {
-    0% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(1.2); }
-    100% { opacity: 1; transform: scale(1); }
-  }
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
 
-  /* Player Card */
-  .player-wrapper {
-    max-width: 1000px;
-    margin: 0 auto;
-    background: #161922;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    padding: 12px;
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
-  }
+.menu a {
+  color: var(--text-secondary);
+  padding: 0.85rem 1rem;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all var(--transition-normal);
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  border: 1px solid transparent;
+}
 
-  .player-ratio {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio */
-    border-radius: 14px;
-    overflow: hidden;
-    background: #000;
-  }
+.menu a:hover {
+  background-color: var(--bg-hover);
+  color: var(--text-main);
+  transform: translateX(4px);
+}
 
-  .player-ratio iframe,
-  .player-status {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
+.menu a.active {
+  background: linear-gradient(135deg, var(--accent-primary) 0%, #0055ff 100%);
+  color: #ffffff;
+  box-shadow: var(--shadow-glow);
+  border-color: rgba(255, 255, 255, 0.2);
+}
 
-  .player-status {
-    display: flex;
+/* ==========================================
+   5. CONTENEDOR PRINCIPAL Y REPRODUCTOR
+   ========================================== */
+.content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.player-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 2.5rem;
+  transition: border-color var(--transition-normal);
+}
+
+.player-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* Relación de aspecto 16:9 */
+  background: #000000;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.video-container iframe,
+.video-container video,
+.video-container .player-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Estado de Carga o Error */
+.player-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--text-secondary);
+  background: radial-gradient(circle, var(--bg-card) 0%, #000000 100%);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-subtle);
+  border-top-color: var(--accent-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.stream-info {
+  padding: 1.25rem 0.5rem 0.5rem 0.5rem;
+}
+
+.stream-info h1 {
+  font-family: var(--font-heading);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
+}
+
+.stream-info p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* ==========================================
+   6. PARRILLA DE CANALES Y TARJETAS (GRID)
+   ========================================== */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+}
+
+.channels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  text-decoration: none;
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 110px;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+/* Resplandor al hacer hover */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top right, var(--accent-glow), transparent 70%);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-focus);
+  box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.8), var(--shadow-glow);
+  background: var(--bg-hover);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card-tag {
+  font-size: 0.7rem;
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  z-index: 1;
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  z-index: 1;
+  margin-top: 0.5rem;
+}
+
+/* ==========================================
+   7. DISEÑO RESPONSIVO (MOBILE & TABLET)
+   ========================================== */
+@media (max-width: 900px) {
+  .main-layout {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    color: #9ca3af;
-    font-size: 0.95rem;
-    font-weight: 500;
   }
 
-  .spinner {
-    width: 36px;
-    height: 36px;
-    border: 3px solid rgba(255, 255, 255, 0.1);
-    border-top-color: #e60000;
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 1rem;
   }
 
-  @keyframes spin {
-    to { transform: rotate(360deg); }
+  .menu {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
   }
 
-  .stream-footer {
-    max-width: 1000px;
-    margin: 1rem auto 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 0.875rem;
-    color: #6b7280;
+  .menu a {
+    white-space: nowrap;
   }
-</style>
+
+  .content {
+    padding: 1.25rem;
+  }
+
+  .channels-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+}
