@@ -12,13 +12,21 @@
     <a href="index.html" class="logo">
       <span class="live-dot"></span>TV<span>ARGENTINA</span>ONLINE
     </a>
+    
     <div class="search-box">
       <input type="text" id="searchInput" placeholder="Buscar canal o radio..." onkeyup="filterChannels()">
+      <span id="searchCounter" class="search-counter"></span>
+    </div>
+
+    <div class="nav-tools">
+      <button class="btn btn-random" onclick="zappingAleatorio()">🎲 Zapping Aleatorio</button>
+      <button class="theme-toggle-btn" id="themeBtn" onclick="toggleTheme()" data-tooltip="Cambiar Tema">🌙</button>
     </div>
   </header>
 
   <div class="main-layout">
     <aside class="sidebar">
+      <div class="menu-category-label">Navegación</div>
       <nav class="menu">
         <a href="index.html" class="active">🏠 Inicio</a>
         <a href="#noticias">📰 Noticias</a>
@@ -30,38 +38,87 @@
 
     <main class="content">
       <section class="hero-banner">
-        <h1>Tu televisión argentina, en un solo lugar</h1>
-        <p>Elegí una señal para empezar a reproducir contenido en vivo.</p>
+        <div class="hero-text">
+          <h1>Tu televisión argentina, en un solo lugar</h1>
+          <p>Seleccioná cualquier señal para empezar a transmitir en vivo.</p>
+        </div>
+        <div class="hero-widget">
+          <span class="widget-title">⚡ Modo Vivo</span>
+          <p id="liveStatus">Transmisión estable</p>
+        </div>
       </section>
 
       <!-- NOTICIAS -->
       <section id="noticias" class="section-group">
         <h2 class="grid-title">📰 Noticias</h2>
         <div class="channels-grid">
+          
           <a href="tn.html" class="card" data-name="tn noticias">
-            <span class="badge news">Noticias</span>
-            <h3>TN</h3>
+            <div class="thumbnail-wrapper">
+              <img src="https://img.youtube.com/vi/live_tn/hqdefault.jpg" alt="TN" class="card-thumb" onerror="this.src='https://via.placeholder.com/320x180/0f172a/ffffff?text=TN+en+Vivo'">
+              <span class="badge news">Noticias</span>
+              <span class="play-overlay">▶</span>
+            </div>
+            <div class="card-body">
+              <h3>TN</h3>
+            </div>
           </a>
+
           <a href="c5n.html" class="card" data-name="c5n noticias">
-            <span class="badge news">Noticias</span>
-            <h3>C5N</h3>
+            <div class="thumbnail-wrapper">
+              <img src="https://img.youtube.com/vi/live_c5n/hqdefault.jpg" alt="C5N" class="card-thumb" onerror="this.src='https://via.placeholder.com/320x180/0f172a/ffffff?text=C5N+en+Vivo'">
+              <span class="badge news">Noticias</span>
+              <span class="play-overlay">▶</span>
+            </div>
+            <div class="card-body">
+              <h3>C5N</h3>
+            </div>
           </a>
+
           <a href="a24.html" class="card" data-name="a24 noticias">
-            <span class="badge news">Noticias</span>
-            <h3>A24</h3>
+            <div class="thumbnail-wrapper">
+              <img src="https://img.youtube.com/vi/live_a24/hqdefault.jpg" alt="A24" class="card-thumb" onerror="this.src='https://via.placeholder.com/320x180/0f172a/ffffff?text=A24+en+Vivo'">
+              <span class="badge news">Noticias</span>
+              <span class="play-overlay">▶</span>
+            </div>
+            <div class="card-body">
+              <h3>A24</h3>
+            </div>
           </a>
+
           <a href="canal26.html" class="card" data-name="canal 26 noticias">
-            <span class="badge news">Noticias</span>
-            <h3>Canal 26</h3>
+            <div class="thumbnail-wrapper">
+              <img src="https://img.youtube.com/vi/live_c26/hqdefault.jpg" alt="Canal 26" class="card-thumb" onerror="this.src='https://via.placeholder.com/320x180/0f172a/ffffff?text=Canal+26'">
+              <span class="badge news">Noticias</span>
+              <span class="play-overlay">▶</span>
+            </div>
+            <div class="card-body">
+              <h3>Canal 26</h3>
+            </div>
           </a>
+
           <a href="canale.html" class="card" data-name="canal e noticias economia">
-            <span class="badge news">Noticias</span>
-            <h3>Canal E</h3>
+            <div class="thumbnail-wrapper">
+              <img src="https://img.youtube.com/vi/live_canale/hqdefault.jpg" alt="Canal E" class="card-thumb" onerror="this.src='https://via.placeholder.com/320x180/0f172a/ffffff?text=Canal+E'">
+              <span class="badge news">Noticias</span>
+              <span class="play-overlay">▶</span>
+            </div>
+            <div class="card-body">
+              <h3>Canal E</h3>
+            </div>
           </a>
+
           <a href="ipnoticias.html" class="card" data-name="ip noticias informacion periodistica">
-            <span class="badge news">Noticias</span>
-            <h3>IP Noticias</h3>
+            <div class="thumbnail-wrapper">
+              <img src="https://img.youtube.com/vi/live_ip/hqdefault.jpg" alt="IP Noticias" class="card-thumb" onerror="this.src='https://via.placeholder.com/320x180/0f172a/ffffff?text=IP+Noticias'">
+              <span class="badge news">Noticias</span>
+              <span class="play-overlay">▶</span>
+            </div>
+            <div class="card-body">
+              <h3>IP Noticias</h3>
+            </div>
           </a>
+
         </div>
       </section>
 
@@ -69,87 +126,198 @@
       <section id="aire" class="section-group">
         <h2 class="grid-title">📺 Televisión Abierta</h2>
         <div class="channels-grid">
+          
           <a href="telefe.html" class="card" data-name="telefe aire">
-            <span class="badge air">Aire</span>
-            <h3>Telefe</h3>
+            <div class="thumbnail-wrapper">
+              <img src="https://via.placeholder.com/320x180/0f172a/ffffff?text=Telefe" alt="Telefe" class="card-thumb">
+              <span class="badge air">Aire</span>
+              <span class="play-overlay">▶</span>
+            </div>
+            <div class="card-body">
+              <h3>Telefe</h3>
+            </div>
           </a>
+
           <a href="eltrece.html" class="card" data-name="el trece aire canal 13">
-            <span class="badge air">Aire</span>
-            <h3>El Trece</h3>
+            <div class="thumbnail-wrapper">
+              <img src="https://via.placeholder.com/320x180/0f172a/ffffff?text=El+Trece" alt="El Trece" class="card-thumb">
+              <span class="badge air">Aire</span>
+              <span class="play-overlay">▶</span>
+            </div>
+            <div class="card-body">
+              <h3>El Trece</h3>
+            </div>
           </a>
+
           <a href="elnueve.html" class="card" data-name="el nueve aire canal 9">
-            <span class="badge air">Aire</span>
-            <h3>El Nueve</h3>
+            <div class="thumbnail-wrapper">
+              <img src="https://via.placeholder.com/320x180/0f172a/ffffff?text=El+Nueve" alt="El Nueve" class="card-thumb">
+              <span class="badge air">Aire</span>
+              <span class="play-overlay">▶</span>
+            </div>
+            <div class="card-body">
+              <h3>El Nueve</h3>
+            </div>
           </a>
+
           <a href="america.html" class="card" data-name="america tv aire">
-            <span class="badge air">Aire</span>
-            <h3>América TV</h3>
+            <div class="thumbnail-wrapper">
+              <img src="https://via.placeholder.com/320x180/0f172a/ffffff?text=America+TV" alt="América TV" class="card-thumb">
+              <span class="badge air">Aire</span>
+              <span class="play-overlay">▶</span>
+            </div>
+            <div class="card-body">
+              <h3>América TV</h3>
+            </div>
           </a>
+
           <a href="nettv.html" class="card" data-name="net tv aire">
-            <span class="badge air">Aire</span>
-            <h3>Net TV</h3>
+            <div class="thumbnail-wrapper">
+              <img src="https://via.placeholder.com/320x180/0f172a/ffffff?text=Net+TV" alt="Net TV" class="card-thumb">
+              <span class="badge air">Aire</span>
+              <span class="play-overlay">▶</span>
+            </div>
+            <div class="card-body">
+              <h3>Net TV</h3>
+            </div>
           </a>
+
           <a href="bravo.html" class="card" data-name="bravo tv aire">
-            <span class="badge air">Aire</span>
-            <h3>Bravo TV</h3>
+            <div class="thumbnail-wrapper">
+              <img src="https://via.placeholder.com/320x180/0f172a/ffffff?text=Bravo+TV" alt="Bravo TV" class="card-thumb">
+              <span class="badge air">Aire</span>
+              <span class="play-overlay">▶</span>
+            </div>
+            <div class="card-body">
+              <h3>Bravo TV</h3>
+            </div>
           </a>
+
         </div>
       </section>
 
-      <!-- ENTRETENIMIENTO Y VARIEDADES -->
+      <!-- VARIEDADES -->
       <section id="variedades" class="section-group">
         <h2 class="grid-title">🎭 Entretenimiento y Variedades</h2>
         <div class="channels-grid">
+          
           <a href="canaldelaciudad.html" class="card" data-name="canal de la ciudad variedades caba">
-            <span class="badge variety">Variedades</span>
-            <h3>Canal de la Ciudad</h3>
+            <div class="thumbnail-wrapper">
+              <img src="https://via.placeholder.com/320x180/0f172a/ffffff?text=Canal+de+la+Ciudad" alt="Canal de la Ciudad" class="card-thumb">
+              <span class="badge variety">Variedades</span>
+              <span class="play-overlay">▶</span>
+            </div>
+            <div class="card-body">
+              <h3>Canal de la Ciudad</h3>
+            </div>
           </a>
+
           <a href="ciudadmagazine.html" class="card" data-name="ciudad magazine espectaculos">
-            <span class="badge variety">Espectáculos</span>
-            <h3>Ciudad Magazine</h3>
+            <div class="thumbnail-wrapper">
+              <img src="https://via.placeholder.com/320x180/0f172a/ffffff?text=Ciudad+Magazine" alt="Ciudad Magazine" class="card-thumb">
+              <span class="badge variety">Espectáculos</span>
+              <span class="play-overlay">▶</span>
+            </div>
+            <div class="card-body">
+              <h3>Ciudad Magazine</h3>
+            </div>
           </a>
+
           <a href="bloopers.html" class="card" data-name="bloopers humor">
-            <span class="badge variety">Humor</span>
-            <h3>Bloopers</h3>
+            <div class="thumbnail-wrapper">
+              <img src="https://via.placeholder.com/320x180/0f172a/ffffff?text=Bloopers" alt="Bloopers" class="card-thumb">
+              <span class="badge variety">Humor</span>
+              <span class="play-overlay">▶</span>
+            </div>
+            <div class="card-body">
+              <h3>Bloopers</h3>
+            </div>
           </a>
+
         </div>
       </section>
 
-      <!-- RADIOS EN VIVO -->
+      <!-- RADIOS -->
       <section id="radios" class="section-group">
         <h2 class="grid-title">📻 Radios en Vivo</h2>
         <div class="channels-grid">
+          
           <a href="radiomitre.html" class="card" data-name="radio mitre am 790">
-            <span class="badge radio">Radio</span>
-            <h3>Radio Mitre</h3>
+            <div class="thumbnail-wrapper">
+              <img src="https://via.placeholder.com/320x180/0f172a/ffffff?text=Radio+Mitre" alt="Radio Mitre" class="card-thumb">
+              <span class="badge radio">Radio</span>
+              <span class="play-overlay">📻</span>
+            </div>
+            <div class="card-body">
+              <h3>Radio Mitre</h3>
+            </div>
           </a>
+
           <a href="la100.html" class="card" data-name="la 100 fm 99.9">
-            <span class="badge radio">Radio</span>
-            <h3>La 100</h3>
+            <div class="thumbnail-wrapper">
+              <img src="https://via.placeholder.com/320x180/0f172a/ffffff?text=La+100" alt="La 100" class="card-thumb">
+              <span class="badge radio">Radio</span>
+              <span class="play-overlay">📻</span>
+            </div>
+            <div class="card-body">
+              <h3>La 100</h3>
+            </div>
           </a>
+
           <a href="urbana.html" class="card" data-name="urbana play fm 104.3">
-            <span class="badge radio">Radio</span>
-            <h3>Urbana Play</h3>
+            <div class="thumbnail-wrapper">
+              <img src="https://via.placeholder.com/320x180/0f172a/ffffff?text=Urbana+Play" alt="Urbana Play" class="card-thumb">
+              <span class="badge radio">Radio</span>
+              <span class="play-overlay">📻</span>
+            </div>
+            <div class="card-body">
+              <h3>Urbana Play</h3>
+            </div>
           </a>
+
         </div>
       </section>
+
     </main>
   </div>
 
   <script>
+    // Filtro con contador
     function filterChannels() {
       const input = document.getElementById('searchInput').value.toLowerCase();
       const cards = document.querySelectorAll('.card');
+      const counter = document.getElementById('searchCounter');
+      let visibleCount = 0;
 
       cards.forEach(card => {
         const name = card.getAttribute('data-name');
         if (name.includes(input)) {
           card.style.display = 'flex';
+          visibleCount++;
         } else {
           card.style.display = 'none';
         }
       });
+
+      counter.textContent = input ? `${visibleCount} encontrados` : '';
+    }
+
+    // Botón Zapping Aleatorio
+    function zappingAleatorio() {
+      const cards = Array.from(document.querySelectorAll('.card'));
+      const randomCard = cards[Math.floor(Math.random() * cards.length)];
+      if (randomCard) {
+        window.location.href = randomCard.getAttribute('href');
+      }
+    }
+
+    // Swapper Tema Claro/Oscuro
+    function toggleTheme() {
+      document.body.classList.toggle('light-theme');
+      const btn = document.getElementById('themeBtn');
+      btn.textContent = document.body.classList.contains('light-theme') ? '☀️' : '🌙';
     }
   </script>
+
 </body>
-</html>
+  </html>
