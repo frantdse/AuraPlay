@@ -26,8 +26,8 @@
             <circle cx="11" cy="11" r="8" />
             <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35" />
         </symbol>
-        <symbol id="icon-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+        <symbol id="icon-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
         </symbol>
         <symbol id="icon-cog" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127c.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.43l-1.003.767c-.29.223-.443.59-.395.952.008.058.012.117.012.175t-.004.117c-.048.362.105.729.395.952l1.003.767a1.125 1.125 0 01.26 1.43l-1.296 2.247a1.125 1.125 0 01-1.37.49l-1.216-.456a1.125 1.125 0 00-1.076.124a6.47 6.47 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281a1.125 1.125 0 00-.644-.87a6.52 6.52 0 01-.22-.127a1.125 1.125 0 00-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.43l1.004-.767c.29-.223.443-.59.395-.952a6.45 6.45 0 01-.012-.175c0-.058.004-.117.012-.175c.048-.362-.105-.73-.395-.952l-1.004-.767a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.49l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128c.332-.183.582-.495.644-.869l.214-1.28z" />
@@ -96,31 +96,32 @@
 
     <main class="content">
       
-      <!-- Panel Header del Proyecto Vitile -->
-      <div class="player-info animate-fade" style="margin-top: 0; position:relative;">
-          <button onclick="toggleConfigPanel()" style="position:absolute; top:15px; right:15px; background:rgba(255,255,255,0.1); border:none; border-radius:50%; width:36px; height:36px; color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center;" title="Configurar Origen EPG">
+      <!-- Panel Header del Proyecto Vitile (Con espaciados aireados) -->
+      <div class="player-info animate-fade" style="margin-top: 0; position: relative; padding: 28px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px;">
+          
+          <button onclick="toggleConfigPanel()" style="position:absolute; top:20px; right:20px; background:rgba(255,255,255,0.1); border:none; border-radius:50%; width:38px; height:38px; color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; transition: background 0.2s;" title="Configurar Origen EPG">
               <svg style="width:20px; height:20px;"><use href="#icon-cog"/></svg>
           </button>
 
-          <div class="channel-title-group">
-            <div class="channel-details">
-              <h2>LISTA M3U VITILE</h2>
-              <p>Argentina & Noticias | Mantenida por <a href="#" style="color: #fff; font-weight: 600; text-decoration: underline;">frantdse</a></p>
-            </div>
+          <div style="margin-bottom: 16px;">
+            <h2 style="font-size: 1.8rem; font-weight: 800; font-family: 'Plus Jakarta Sans', sans-serif; margin: 0 0 8px 0; letter-spacing: -0.5px; color: #ffffff;">LISTA M3U VITILE</h2>
+            <p style="font-size: 0.95rem; margin: 0; color: #a0a0a0; line-height: 1.5;">
+              Argentina & Noticias | Mantenida por <a href="#" style="color: #fff; font-weight: 600; text-decoration: underline;">frantdse</a>
+            </p>
           </div>
 
-          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 15px;">
-              <span class="badge news" style="background: rgba(255,255,255,0.1); color: #fff;">📅 Actualizado: 19 Junio, 2026</span>
-              <span class="badge news" style="background: rgba(0, 218, 126, 0.15); color: #00da7e;">👥 +1,000 Usuarios</span>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;">
+              <span class="badge news" style="background: rgba(255,255,255,0.1); color: #fff; padding: 6px 14px; font-size: 0.8rem; border-radius: 6px;">📅 Actualizado: 19 Junio, 2026</span>
+              <span class="badge news" style="background: rgba(0, 218, 126, 0.15); color: #00da7e; padding: 6px 14px; font-size: 0.8rem; border-radius: 6px;">👥 +1,000 Usuarios</span>
           </div>
 
-          <p style="font-size: 0.9rem; line-height: 1.6; margin-top: 15px; opacity: 0.85;">
+          <p style="font-size: 0.95rem; line-height: 1.7; margin: 0; color: #d0d0d0; max-width: 900px;">
               ¡Hola! 🌷 El equipo de <strong>Lista M3U Vitile</strong> te da la bienvenida. Hemos diseñado esta lista con una amplia selección de canales de entretenimiento, noticias y extras de Argentina que ya disfrutan muchísimo usuarios en todo el país.
           </p>
       </div>
 
       <!-- Panel de Configuración Avanzado EPG -->
-      <div id="configPanel" style="display:none; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 20px; margin-bottom: 25px;">
+      <div id="configPanel" style="display:none; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 20px; margin-top: 20px; margin-bottom: 25px;">
           <h4 style="margin:0 0 10px 0; color:#fff;">Configuración de Guía XMLTV</h4>
           <p style="font-size:0.8rem; color:#aaa; margin:0 0 15px 0;">Modificá el origen remoto para compilar la grilla de canales en tiempo real.</p>
           <div style="display:flex; gap:10px; margin-bottom:15px;">
@@ -134,58 +135,38 @@
       </div>
 
       <!-- Monitores de Estado del Servidor -->
-      <section class="section-group animate-fade">
+      <section class="section-group animate-fade" style="margin-top: 24px;">
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); padding: 15px; border-radius: 10px;">
-            <span style="font-size: 0.7rem; color: #888; display: block; font-weight: 700;">SERVIDOR M3U</span>
+          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); padding: 16px; border-radius: 12px;">
+            <span style="font-size: 0.7rem; color: #888; display: block; font-weight: 700; margin-bottom: 4px;">SERVIDOR M3U</span>
             <span style="color: #00da7e; font-weight: 800; font-size: 1.1rem;">ONLINE</span>
           </div>
-          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); padding: 15px; border-radius: 10px;">
-            <span style="font-size: 0.7rem; color: #888; display: block; font-weight: 700;">ESTABILIDAD</span>
+          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); padding: 16px; border-radius: 12px;">
+            <span style="font-size: 0.7rem; color: #888; display: block; font-weight: 700; margin-bottom: 4px;">ESTABILIDAD</span>
             <span style="color: #fff; font-weight: 800; font-size: 1.1rem;">99.7%</span>
           </div>
-          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); padding: 15px; border-radius: 10px;">
-            <span style="font-size: 0.7rem; color: #888; display: block; font-weight: 700;">LATENCIA</span>
+          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); padding: 16px; border-radius: 12px;">
+            <span style="font-size: 0.7rem; color: #888; display: block; font-weight: 700; margin-bottom: 4px;">LATENCIA</span>
             <span style="color: #fff; font-weight: 800; font-size: 1.1rem;">42ms</span>
           </div>
         </div>
       </section>
 
-      <!-- Generador Dinámico de Listas Personalizadas -->
+      <!-- Recuadro Directo: Link de la Lista M3U -->
       <section class="section-group animate-fade">
-        <div class="player-info" style="flex-direction: column; align-items: flex-start; gap: 20px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 24px;">
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <svg style="width:20px; height:20px; color:#e50914;"><use href="#icon-bolt" /></svg>
-                <h3 style="font-size: 1.2rem; margin: 0; font-family: 'Plus Jakarta Sans', sans-serif;">Generador Remoto & Descarga Personalizada</h3>
+        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 24px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                <svg style="width:20px; height:20px; color:#e50914;"><use href="#icon-link" /></svg>
+                <h3 style="font-size: 1.15rem; margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; color: #fff;">Link de la Lista M3U</h3>
             </div>
-            <p style="font-size: 0.85rem; opacity: 0.8; margin: 0;">Armá tu lista a medida. Elegí qué categorías querés conservar y descargá el archivo M3U filtrado al instante o copiá tu URL remota.</p>
+            <p style="font-size: 0.85rem; color: #a0a0a0; margin: 0 0 16px 0; line-height: 1.5;">Copiá la URL remota e ingresala directamente en tu reproductor IPTV preferido (IPTV Smarters, VLC, Kodi, TiviMate, etc.).</p>
 
-            <div style="display: flex; gap: 15px; flex-wrap: wrap; width: 100%;">
-                <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer;">
-                    <input type="checkbox" id="gen-noticias" checked onchange="actualizarEnlaceM3U()"> Noticias
-                </label>
-                <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer;">
-                    <input type="checkbox" id="gen-general" checked onchange="actualizarEnlaceM3U()"> General / Abierta
-                </label>
-                <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer;">
-                    <input type="checkbox" id="gen-tematicos" checked onchange="actualizarEnlaceM3U()"> Temáticos / Música
-                </label>
-                <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer;">
-                    <input type="checkbox" id="gen-internacional" checked onchange="actualizarEnlaceM3U()"> Internacional
-                </label>
-            </div>
-
-            <div style="width: 100%; display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
-                <div style="flex: 1; min-width: 280px; display: flex; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; overflow: hidden;">
-                    <input type="text" readonly id="m3u-url-display" value="https://gist.githubusercontent.com/frantdse/54549f7b5c641de6567103bc90cdeab3/raw/" style="width: 100%; background: transparent; border: none; color: #fff; padding: 12px 16px; font-family: monospace; font-size: 0.85rem;">
-                    <button class="copy-btn" title="Copiar URL" onclick="copiarUrlGist(this)" style="background: rgba(255,255,255,0.1); border: none; color: #fff; padding: 0 15px; cursor: pointer;">
-                        <svg class="icon icon-copy" style="width:16px; height:16px;"><use href="#icon-copy" /></svg>
-                        <svg class="icon icon-check" style="width:16px; height:16px; display:none;"><use href="#icon-check" /></svg>
-                    </button>
-                </div>
-                <button onclick="descargarM3UFiltrado()" style="background: #e50914; color: white; border: none; padding: 0 20px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; height: 45px;">
-                    <svg style="width:16px; height:16px;"><use href="#icon-download" /></svg>
-                    Descargar .M3U
+            <div style="display: flex; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; overflow: hidden;">
+                <input type="text" readonly id="m3u-url-display" value="https://gist.githubusercontent.com/frantdse/54549f7b5c641de6567103bc90cdeab3/raw/" style="width: 100%; background: transparent; border: none; color: #00da7e; padding: 14px 18px; font-family: monospace; font-size: 0.9rem; font-weight: 600; outline: none;">
+                <button class="copy-btn" title="Copiar URL" onclick="copiarUrlGist(this)" style="background: #e50914; border: none; color: #fff; padding: 0 22px; font-weight: 700; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: background 0.2s;">
+                    <svg class="icon icon-copy" style="width:16px; height:16px;"><use href="#icon-copy" /></svg>
+                    <svg class="icon icon-check" style="width:16px; height:16px; display:none;"><use href="#icon-check" /></svg>
+                    <span>Copiar URL</span>
                 </button>
             </div>
         </div>
@@ -197,7 +178,7 @@
       <input type="hidden" id="mainSearchInput">
       <input type="hidden" id="listSearchInput">
 
-      <!-- Sección Editorial -->
+       <!-- Sección Editorial -->
       <section class="section-group animate-fade">
           <h2 class="grid-title">Nuestra Historia y Filosofía</h2>
           
