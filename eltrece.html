@@ -2,8 +2,6 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <!-- This site is hosted on Netlify. Anyone can build and deploy a site     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=c0e3cb4d-8286-4e24-af13-dab67f947325     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>El Trece en Vivo - AuraPlay</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,12 +61,16 @@
 
     <!-- CONTENIDO DEL REPRODUCTOR -->
     <main class="content">
-            
-      <!-- REPRODUCTOR PRINCIPAL (Se conservó tu reproductor original de El Trece) -->
+      
+      <!-- REPRODUCTOR PRINCIPAL -->
       <div class="player-container animate-fade">
-        <div class="video-responsive">
-          <iframe src="https://anym3u8player.com/ultimate-player-generator/player.php?player=jwplayer&url=https%3A%2F%2Flivetrx01.vodgc.net%2Feltrecetv%2Findex.m3u8&controls=auto&theme=default&buffer=30&quality=1&speed=1&pip=1&fullscreen=1&no_download=1&width=responsive&aspect=16%3A9" title="El Trece en Vivo" allowfullscreen></iframe>
-        </div>
+        <iframe 
+          class="player-frame" 
+          src="https://anym3u8player.com/ultimate-player-generator/player.php?player=jwplayer&url=https%3A%2F%2Flivetrx01.vodgc.net%2Feltrecetv%2Findex.m3u8&controls=auto&theme=default&buffer=30&quality=1&speed=1&pip=1&fullscreen=1&no_download=1&width=responsive&aspect=16%3A9" 
+          title="El Trece en Vivo" 
+          allow="autoplay; fullscreen; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
       </div>
 
       <!-- DETALLES DEL CANAL -->
@@ -172,4 +174,3 @@
 
 </body>
 </html>
-<script async src="/.netlify/scripts/hud?variant=public" data-nf-variant="public" data-netlify-site-id="c0e3cb4d-8286-4e24-af13-dab67f947325" data-app-host="app.netlify.com"></script>
