@@ -59,37 +59,62 @@
           </a>
           <a href='m3u.html'>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Lista M3U Vitile
+          Lista M3U La Lindilla 🇦🇷
         </a>
       </nav>
     </aside>
 
     <!-- CONTENIDO DEL REPRODUCTOR -->
-    <main class="content">
-      
-      <!-- REPRODUCTOR PRINCIPAL -->
-      <div class="player-container animate-fade">
-        <iframe 
-          class="player-frame" 
-          src="https://vaughn.live/juan_13tv" 
-          title="Telefe en Vivo" 
-          allow="autoplay; fullscreen; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
-      </div>
+<main class="content">
+  
+  <!-- REPRODUCTOR PRINCIPAL -->
+  <div class="player-container animate-fade">
+    <video 
+      id="telefe-video" 
+      class="player-frame" 
+      controls 
+      autoplay 
+      muted 
+      playsinline>
+    </video>
+  </div>
 
-      <!-- DETALLES DEL CANAL -->
-      <div class="player-info animate-fade">
-        <div class="channel-title-group">
-          <div class="channel-details">
-            <h2>Telefe</h2>
-            <p>Televisión Federal: una de las cadenas de televisión abierta más vistas de Argentina, con programas de entretenimiento, telenovelas, realities y noticieros.</p>
-          </div>
-        </div>
-        <div>
-          <span class="badge news">ENVIVO</span>
-        </div>
+  <!-- DETALLES DEL CANAL -->
+  <div class="player-info animate-fade">
+    <div class="channel-title-group">
+      <div class="channel-details">
+        <h2>Telefe</h2>
+        <p>Televisión Federal: una de las cadenas de televisión abierta más vistas de Argentina, con programas de entretenimiento, telenovelas, realities y noticieros.</p>
       </div>
+    </div>
+    <div>
+      <span class="badge news">ENVIVO</span>
+    </div>
+  </div>
+</main>
+
+<!-- LIBRERÍA Y SCRIPT HLS -->
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<script>
+  (function() {
+    var streamUrl = 'http://181.209.91.106:2222/Live/e86d3e2949d68fcefdba7abc9a046fe3/telefe.playlist.m3u8';
+    var video = document.getElementById('telefe-video');
+
+    if (Hls.isSupported()) {
+      var hls = new Hls();
+      hls.loadSource(streamUrl);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, function() {
+        video.play();
+      });
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = streamUrl;
+      video.addEventListener('loadedmetadata', function() {
+        video.play();
+      });
+    }
+  })();
+</script>
 
       <!-- CANALES RECOMENDADOS -->
       <section class="section-group animate-fade">
