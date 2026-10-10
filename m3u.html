@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lista M3U La Lindilla - AuraPlay</title>
+  <title>Lista M3U La Lindilla 🇦🇷 - AuraPlay</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -36,10 +36,10 @@
     </svg>
 
     <!-- Cargador Global Oculto -->
-    <div id="globalLoader" style="display: none; position: fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center; color:#fff;">
+    <div id="globalLoader" style="display: none; position: fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:9999; justify-content:center; align-items:center; color:#fff;">
         <div style="text-align:center;">
             <div style="border:4px solid rgba(255,255,255,0.2); border-top:4px solid #e50914; border-radius:50%; width:40px; height:40px; animation: spin 1s linear infinite; margin:0 auto 10px auto;"></div>
-            <span>Procesando Guía de Programación...</span>
+            <span>Actualizando Guía de Programación...</span>
         </div>
     </div>
     <style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</style>
@@ -96,74 +96,59 @@
 
     <main class="content">
       
-      <!-- Panel Header del Proyecto La Lindilla -->
-      <div class="player-info animate-fade" style="margin-top: 0; position: relative; padding: 28px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px;">
-          
-          <button onclick="toggleConfigPanel()" style="position:absolute; top:20px; right:20px; background:rgba(255,255,255,0.1); border:none; border-radius:50%; width:38px; height:38px; color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; transition: background 0.2s;" title="Configurar Origen EPG">
-              <svg style="width:20px; height:20px;"><use href="#icon-cog"/></svg>
-          </button>
-
-          <div style="margin-bottom: 16px;">
-            <h2 style="font-size: 1.8rem; font-weight: 800; font-family: 'Plus Jakarta Sans', sans-serif; margin: 0 0 8px 0; letter-spacing: -0.5px; color: #ffffff;">LISTA M3U LA LINDILLA 🇦🇷</h2>
-            <p style="font-size: 0.95rem; margin: 0; color: #a0a0a0; line-height: 1.5;">
-              Argentina & Noticias | Mantenida por <a href="#" style="color: #fff; font-weight: 600; text-decoration: underline;">frantdse</a>
+      <!-- Panel Header / Hero Banner Adaptado al CSS -->
+      <section class="hero-banner animate-fade">
+          <div class="hero-text">
+            <h1>LISTA M3U LA LINDILLA 🇦🇷</h1>
+            <p style="margin-bottom: 12px;">Argentina & Noticias | Mantenida por <a href="#" style="color: #fff; font-weight: 600; text-decoration: underline;">frantdse</a></p>
+            
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
+                <span class="badge news">📅 Actualizado: Octubre, 2026</span>
+                <span class="badge" style="background: rgba(0, 218, 126, 0.2); color: #00da7e; border: 1px solid rgba(0,218,126,0.4);">👥 +1,000 Usuarios</span>
+            </div>
+            
+            <p style="margin-top: 15px; font-size: 0.9rem; line-height: 1.6; color: var(--text-muted);">
+              ¡Hola! 🌷 El equipo de <strong>La Lindilla</strong> te da la bienvenida. Disfrutá de una cuidada selección federal de entretenimiento y noticias sin cortes en tus dispositivos.
             </p>
           </div>
 
-          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;">
-              <span class="badge news" style="background: rgba(255,255,255,0.1); color: #fff; padding: 6px 14px; font-size: 0.8rem; border-radius: 6px;">📅 Actualizado: Octubre, 2026</span>
-              <span class="badge news" style="background: rgba(0, 218, 126, 0.15); color: #00da7e; padding: 6px 14px; font-size: 0.8rem; border-radius: 6px;">👥 +1,000 Usuarios</span>
+          <div style="display: flex; flex-direction: column; gap: 12px; align-items: flex-end;">
+              <button onclick="toggleConfigPanel()" class="theme-toggle-btn" title="Configurar EPG" style="border-radius: var(--radius-md); width: auto; padding: 0 12px; gap: 6px; font-size: 0.8rem;">
+                  <svg style="width:16px; height:16px;"><use href="#icon-cog"/></svg> Configuración
+              </button>
+              <div class="hero-widget">
+                <span class="widget-title">ESTADO DEL NODO</span>
+                <span style="color: #22c55e; font-weight: 800; font-size: 0.95rem;">ONLINE (99.7%)</span>
+              </div>
           </div>
-
-          <p style="font-size: 0.95rem; line-height: 1.7; margin: 0; color: #d0d0d0; max-width: 900px;">
-              ¡Hola! 🌷 El equipo de <strong>Lista M3U La Lindilla</strong> te da la bienvenida. Hemos diseñado esta selección federal con lo mejor del entretenimiento, noticias y cultura de Argentina para que disfrutes sin cortes en tus dispositivos.
-          </p>
-      </div>
-
-      <!-- Panel de Configuración Avanzado EPG -->
-      <div id="configPanel" style="display:none; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 20px; margin-top: 20px; margin-bottom: 25px;">
-          <h4 style="margin:0 0 10px 0; color:#fff;">Configuración de Guía XMLTV</h4>
-          <p style="font-size:0.8rem; color:#aaa; margin:0 0 15px 0;">Modificá el origen remoto para compilar la grilla de canales en tiempo real.</p>
-          <div style="display:flex; gap:10px; margin-bottom:15px;">
-              <button onclick="toggleUrlSection()" style="background:#e50914; color:#fff; border:none; padding:8px 14px; border-radius:6px; font-size:0.8rem; cursor:pointer;">Cambiar URL</button>
-              <button onclick="loadDefaultEPG()" style="background:rgba(255,255,255,0.1); color:#fff; border:none; padding:8px 14px; border-radius:6px; font-size:0.8rem; cursor:pointer;">Restaurar Default</button>
-          </div>
-          <div id="urlConfigSection" style="display:none; flex-direction:column; gap:8px;">
-              <input type="text" id="urlInput" value="https://impeditor.com/epg/capanueve/capanueve" style="width:100%; padding:8px; background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.2); color:#fff; border-radius:6px; font-size:0.85rem;">
-              <button onclick="manualLoadEPG()" style="background:#00da7e; color:#000; font-weight:bold; border:none; padding:8px 12px; border-radius:6px; font-size:0.8rem; cursor:pointer; align-self:flex-start;">Cargar e Inyectar XML</button>
-          </div>
-      </div>
-
-      <!-- Monitores de Estado del Servidor -->
-      <section class="section-group animate-fade" style="margin-top: 24px;">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); padding: 16px; border-radius: 12px;">
-            <span style="font-size: 0.7rem; color: #888; display: block; font-weight: 700; margin-bottom: 4px;">SERVIDOR M3U</span>
-            <span style="color: #00da7e; font-weight: 800; font-size: 1.1rem;">ONLINE</span>
-          </div>
-          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); padding: 16px; border-radius: 12px;">
-            <span style="font-size: 0.7rem; color: #888; display: block; font-weight: 700; margin-bottom: 4px;">ESTABILIDAD</span>
-            <span style="color: #fff; font-weight: 800; font-size: 1.1rem;">99.7%</span>
-          </div>
-          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); padding: 16px; border-radius: 12px;">
-            <span style="font-size: 0.7rem; color: #888; display: block; font-weight: 700; margin-bottom: 4px;">LATENCIA</span>
-            <span style="color: #fff; font-weight: 800; font-size: 1.1rem;">42ms</span>
-          </div>
-        </div>
       </section>
 
-      <!-- Recuadro Directo: Link de la Lista M3U -->
-      <section class="section-group animate-fade">
-        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 24px;">
-            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
-                <svg style="width:20px; height:20px; color:#e50914;"><use href="#icon-link" /></svg>
-                <h3 style="font-size: 1.15rem; margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; color: #fff;">Link de la Lista M3U</h3>
-            </div>
-            <p style="font-size: 0.85rem; color: #a0a0a0; margin: 0 0 16px 0; line-height: 1.5;">Copiá la URL remota e ingresala directamente en tu reproductor IPTV preferido (IPTV Smarters, VLC, Kodi, TiviMate, etc.).</p>
+      <!-- Panel de Configuración Avanzado EPG -->
+      <div id="configPanel" style="display:none; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; margin-bottom: 2rem;">
+          <h4 style="margin:0 0 8px 0; color:var(--text-main); font-size: 1.1rem;">Configuración de Guía XMLTV</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin:0 0 15px 0;">Modificá el origen remoto para compilar la grilla de canales en tiempo real.</p>
+          <div style="display:flex; gap:10px; margin-bottom:15px; flex-wrap: wrap;">
+              <button onclick="toggleUrlSection()" class="btn-random" style="border-radius: var(--radius-sm); padding: 6px 12px; font-size: 0.8rem;">Cambiar URL</button>
+              <button onclick="loadDefaultEPG()" class="theme-toggle-btn" style="border-radius: var(--radius-sm); width: auto; padding: 0 12px; font-size: 0.8rem;">Restaurar Default</button>
+          </div>
+          <div id="urlConfigSection" style="display:none; flex-direction:column; gap:10px;">
+              <input type="text" id="urlInput" value="https://impeditor.com/epg/capanueve/capanueve" style="width:100%; padding:10px; background:rgba(0,0,0,0.4); border:1px solid var(--border); color:#fff; border-radius:var(--radius-sm); font-size:0.85rem;">
+              <button onclick="manualLoadEPG()" style="background:#22c55e; color:#000; font-weight:bold; border:none; padding:8px 14px; border-radius:var(--radius-sm); font-size:0.8rem; cursor:pointer; align-self:flex-start;">Cargar e Inyectar XML</button>
+          </div>
+      </div>
 
-            <div style="display: flex; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; overflow: hidden;">
-                <input type="text" readonly id="m3u-url-display" value="https://gist.githubusercontent.com/frantdse/54549f7b5c641de6567103bc90cdeab3/raw/" style="width: 100%; background: transparent; border: none; color: #00da7e; padding: 14px 18px; font-family: monospace; font-size: 0.9rem; font-weight: 600; outline: none;">
-                <button class="copy-btn" title="Copiar URL" onclick="copiarUrlGist(this)" style="background: #e50914; border: none; color: #fff; padding: 0 22px; font-weight: 700; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: background 0.2s;">
+      <!-- Recuadro Directo: Link de la Lista M3U -->
+      <section class="section-group">
+        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.5rem;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                <svg style="width:20px; height:20px; color:var(--accent);"><use href="#icon-link" /></svg>
+                <h3 style="font-size: 1.1rem; margin: 0; color: var(--text-main);">Enlace Directo Lista M3U</h3>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0 0 1rem 0;">Copiá la URL remota e ingresala en tu reproductor IPTV preferido.</p>
+
+            <div style="display: flex; background: rgba(0,0,0,0.4); border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; flex-wrap: wrap;">
+                <input type="text" readonly id="m3u-url-display" value="https://gist.githubusercontent.com/frantdse/54549f7b5c641de6567103bc90cdeab3/raw/" style="flex: 1; min-width: 240px; background: transparent; border: none; color: #00da7e; padding: 12px 16px; font-family: monospace; font-size: 0.85rem; outline: none;">
+                <button class="btn-random" title="Copiar URL" onclick="copiarUrlGist(this)" style="border-radius: 0; padding: 0 20px; height: auto;">
                     <svg class="icon icon-copy" style="width:16px; height:16px;"><use href="#icon-copy" /></svg>
                     <svg class="icon icon-check" style="width:16px; height:16px; display:none;"><use href="#icon-check" /></svg>
                     <span>Copiar URL</span>
@@ -178,52 +163,37 @@
       <input type="hidden" id="mainSearchInput">
       <input type="hidden" id="listSearchInput">
 
-       <!-- Sección Editorial -->
-      <section class="section-group animate-fade">
-          <h2 class="grid-title">Nuestra Historia y Filosofía</h2>
-          
-          <p style="font-size: 0.95rem; line-height: 1.6; opacity: 0.9; margin-bottom: 25px;">
-              Creada originalmente en <strong>febrero de 2025</strong> (y evolucionada a <strong>La Lindilla</strong>), nacimos con el firme objetivo de ser una alternativa abierta, gratuita y accesible para ver televisión argentina de forma unificada y sin fricciones.
-          </p>
-
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-bottom: 30px;">
-              <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 20px; border-radius: 12px;">
-                  <div style="font-size: 1.8rem; margin-bottom: 10px;">🔓</div>
-                  <h4 style="margin: 0 0 8px 0; font-size: 1rem;">Infraestructura Abierta</h4>
-                  <p style="margin: 0; font-size: 0.85rem; opacity: 0.8; line-height: 1.5;">Creemos en una web transparente. No dependemos de servidores ocultos ni APIs privadas; todo está pensado para que la comunidad pueda colaborar libremente.</p>
+      <!-- Nueva Sección Propuesta: Apps Compatibles -->
+      <section class="section-group">
+          <h2 class="grid-title">Compatibilidad Garantizada</h2>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+              <div style="background: var(--bg-card); border: 1px solid var(--border); padding: 1.2rem; border-radius: var(--radius-md); text-align: center;">
+                  <div style="font-size: 1.5rem; margin-bottom: 8px;">📺</div>
+                  <h4 style="font-size: 0.95rem; margin-bottom: 4px;">TiviMate</h4>
+                  <p style="font-size: 0.75rem; color: var(--text-muted);">Ideal para Android TV y TV Boxes.</p>
               </div>
-              
-              <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 20px; border-radius: 12px;">
-                  <div style="font-size: 1.8rem; margin-bottom: 10px;">🇦🇷</div>
-                  <h4 style="margin: 0 0 8px 0; font-size: 1rem;">Identidad Federal</h4>
-                  <p style="margin: 0; font-size: 0.85rem; opacity: 0.8; line-height: 1.5;">La televisión argentina no termina en Buenos Aires. Nos esforzamos para que cada rincón del país tenga sus señales y noticias locales integradas.</p>
+              <div style="background: var(--bg-card); border: 1px solid var(--border); padding: 1.2rem; border-radius: var(--radius-md); text-align: center;">
+                  <div style="font-size: 1.5rem; margin-bottom: 8px;">⚡</div>
+                  <h4 style="font-size: 0.95rem; margin-bottom: 4px;">IPTV Smarters</h4>
+                  <p style="font-size: 0.75rem; color: var(--text-muted);">Disponible para móviles y Smart TVs.</p>
               </div>
-
-              <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 20px; border-radius: 12px;">
-                  <div style="font-size: 1.8rem; margin-bottom: 10px;">⚡</div>
-                  <h4 style="margin: 0 0 8px 0; font-size: 1rem;">Optimización Manual</h4>
-                  <p style="margin: 0; font-size: 0.85rem; opacity: 0.8; line-height: 1.5;">A diferencia de los scrapers automáticos que acumulan enlaces rotos, cada flujo en La Lindilla pasa por curaduría manual para asegurar estabilidad.</p>
+              <div style="background: var(--bg-card); border: 1px solid var(--border); padding: 1.2rem; border-radius: var(--radius-md); text-align: center;">
+                  <div style="font-size: 1.5rem; margin-bottom: 8px;">💻</div>
+                  <h4 style="font-size: 0.95rem; margin-bottom: 4px;">VLC & Kodi</h4>
+                  <p style="font-size: 0.75rem; color: var(--text-muted);">Perfecto para PC y portátiles.</p>
               </div>
-
-              <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 20px; border-radius: 12px;">
-                  <div style="font-size: 1.8rem; margin-bottom: 10px;">🛡️</div>
-                  <h4 style="margin: 0 0 8px 0; font-size: 1rem;">Cero Fricción</h4>
-                  <p style="margin: 0; font-size: 0.85rem; opacity: 0.8; line-height: 1.5;">Sin registros obligatorios ni publicidad intrusiva. Copiás tu enlace, lo pegás en tu reproductor favorito y empezás a disfrutar al instante.</p>
+              <div style="background: var(--bg-card); border: 1px solid var(--border); padding: 1.2rem; border-radius: var(--radius-md); text-align: center;">
+                  <div style="font-size: 1.5rem; margin-bottom: 8px;">📱</div>
+                  <h4 style="font-size: 0.95rem; margin-bottom: 4px;">XCIPTV Player</h4>
+                  <p style="font-size: 0.75rem; color: var(--text-muted);">Fluidez total en smartphones.</p>
               </div>
-          </div>
-
-          <div style="background: rgba(255,255,255,0.02); border-left: 4px solid #e50914; padding: 20px; border-radius: 0 12px 12px 0;">
-              <h3 style="margin: 0 0 10px 0; font-size: 1.1rem;">Nuestro compromiso con vos</h3>
-              <p style="margin: 0 0 10px 0; font-size: 0.85rem; opacity: 0.85; line-height: 1.6;">
-                  Sabemos que el mundo del streaming IPTV cambia constantemente. Por eso, con este rebranding a <strong>La Lindilla</strong> renovamos las energías para seguir ofreciendo una grilla limpia, ordenada y confiable.
-              </p>
           </div>
       </section>
 
       <!-- Video Presentación -->
       <section class="section-group animate-fade">
           <h2 class="grid-title">Video de Presentación</h2>
-          <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+          <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--radius-md); border: 1px solid var(--border);">
               <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video de Presentación" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
           </div>
       </section>
@@ -232,14 +202,151 @@
       <section class="section-group animate-fade">
           <h2 class="grid-title">Guía de Canales & Programación</h2>
           
-          <div style="margin-bottom: 20px; position: relative;">
-              <input type="text" id="channelSearch" placeholder="Buscar canal en la guía..." style="width: 100%; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.15); color: #fff; padding: 12px 16px; border-radius: 8px;">
+          <div style="margin-bottom: 1.2rem; position: relative;">
+              <input type="text" id="channelSearch" placeholder="Buscar canal en la guía..." style="width: 100%; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-main); padding: 0.75rem 1rem; border-radius: var(--radius-sm); outline: none;">
           </div>
 
-          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;">
-              <button class="tab-btn active" data-filter="all" style="background: #e50914; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer;">Todos</button>
-              <button class="tab-btn" data-filter="noticias" style="background: rgba(255,255,255,0.1); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">Noticias</button>
-              <button class="tab-btn" data-filter="television" style="background: rgba(255,255,255,0.1); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">General/Abierta</button>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 1.5rem;">
+              <button class="btn-random" data-filter="all" style="border-radius: var(--radius-sm);">Todos</button>
+              <button class="theme-toggle-btn" data-filter="noticias" style="border-radius: var(--radius-sm); width: auto; padding: 0 14px; font-size: 0.8rem;">Noticias</button>
+              <button class="theme-toggle-btn" data-filter="television" style="border-radius: var(--radius-sm); width: auto; padding: 0 14px; font-size: 0.8rem;">General/Abierta</button>
           </div>
 
-          
+          <!-- Grilla de canales sugeridos -->
+          <div class="channels-grid">
+            <a class='card' data-name='america tv aire' href='/america'>
+              <div class="thumbnail-wrapper">
+                <span class="badge news">ENVIVO</span>
+                <img src="https://picsum.photos/400/225?random=10" alt="América TV" class="card-thumb">
+                <div class="play-overlay">▶</div>
+              </div>
+              <div class="card-body">
+                <h3>América TV</h3>
+              </div>
+            </a>
+
+            <a class='card' data-name='a24 noticias' href='/a24'>
+              <div class="thumbnail-wrapper">
+                <span class="badge news">ENVIVO</span>
+                <img src="https://picsum.photos/400/225?random=1" alt="A24" class="card-thumb">
+                <div class="play-overlay">▶</div>
+              </div>
+              <div class="card-body">
+                <h3>A24</h3>
+              </div>
+            </a>
+
+            <a class='card' data-name='el nueve aire tv' href='/elnueve'>
+              <div class="thumbnail-wrapper">
+                <span class="badge news">ENVIVO</span>
+                <img src="https://picsum.photos/400/225?random=2" alt="El Nueve" class="card-thumb">
+                <div class="play-overlay">▶</div>
+              </div>
+              <div class="card-body">
+                <h3>El Nueve</h3>
+              </div>
+            </a>
+
+            <a class='card' data-name='telefe aire tv' href='/telefe'>
+              <div class="thumbnail-wrapper">
+                <span class="badge news">ENVIVO</span>
+                <img src="https://picsum.photos/400/225?random=3" alt="Telefe" class="card-thumb">
+                <div class="play-overlay">▶</div>
+              </div>
+              <div class="card-body">
+                <h3>Telefe</h3>
+              </div>
+            </a>
+          </div>
+      </section>
+
+      <footer class="footer">
+        <div class="footer-links">
+          <a href="#">Términos de servicio</a>
+          <a href="#">Privacidad</a>
+          <a href="#">Soporte Técnico</a>
+        </div>
+        <p>© 2026 AuraPlay Network & La Lindilla. Todos los derechos reservados.</p>
+      </footer>
+
+    </main>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('light-theme');
+    }
+
+    function filterChannels() {
+      const input = document.getElementById('searchInput').value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.card');
+      const counter = document.getElementById('searchCounter');
+      let visible = 0;
+
+      cards.forEach(card => {
+        const name = card.getAttribute('data-name');
+        if (name && name.toLowerCase().includes(input)) {
+          card.style.display = 'flex';
+          visible++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      counter.textContent = input ? `${visible}` : 'M3U';
+    }
+
+    function zappingAleatorio() {
+      const channels = ['tn.html', 'c5n.html', 'a24.html', 'ipnoticias.html', 'telefe.html', 'eltrece.html'];
+      const randomPage = channels[Math.floor(Math.random() * channels.length)];
+      window.location.href = randomPage;
+    }
+
+    function toggleConfigPanel() {
+      const panel = document.getElementById('configPanel');
+      panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function toggleUrlSection() {
+      const section = document.getElementById('urlConfigSection');
+      section.style.display = section.style.display === 'none' ? 'flex' : 'none';
+    }
+
+    function copiarUrlGist(btn) {
+      const input = document.getElementById('m3u-url-display');
+      
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(input.value);
+      } else {
+        input.select();
+        document.execCommand('copy');
+      }
+      
+      const copyIcon = btn.querySelector('.icon-copy');
+      const checkIcon = btn.querySelector('.icon-check');
+      
+      if (copyIcon && checkIcon) {
+        copyIcon.style.display = 'none';
+        checkIcon.style.display = 'inline-block';
+        setTimeout(() => {
+          copyIcon.style.display = 'inline-block';
+          checkIcon.style.display = 'none';
+        }, 2000);
+      } else {
+        alert('¡URL copiada al portapapeles!');
+      }
+    }
+
+    function descargarM3UFiltrado() {
+      const display = document.getElementById('m3u-url-display');
+      if (!display) return;
+      const link = document.createElement('a');
+      link.href = display.value;
+      link.download = 'lista_la_lindilla_filtrada.m3u';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
+</body>
+</html>
